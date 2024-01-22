@@ -4,10 +4,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-class TemporaryController {
+class HomeController {
 
     @GetMapping("/")
-    String helloService() {
+    String home() {
         return "index.html";
     }
 }
