@@ -2,12 +2,12 @@ spring:
   jpa:
     show-sql: true
     hibernate:
-      ddl-auto: validate
+      ddl-auto: create-drop
   profiles:
     default: dev
   liquibase:
     change-log: classpath:/db/changelog/maser.xml
     enabled: false
-  sql:
-    init:
-      mode: never
+#  sql:
+#    init:
+#      mode: never
