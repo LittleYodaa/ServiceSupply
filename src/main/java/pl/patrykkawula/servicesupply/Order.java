@@ -22,7 +22,8 @@ class Order {
     @JoinColumn(name = "employee_id")
     private Employee employee;
     @ManyToOne
-
     private Store store;
+    @OneToMany(mappedBy = "order")
+    private List<OrderProduct> orderProducts;
 
 }

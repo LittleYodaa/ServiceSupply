@@ -11,11 +11,14 @@ import java.util.List;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-class Brand {
+class Cart {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
-    @OneToMany(mappedBy = "brand")
-    List<ProductDetails> products;
+    @OneToOne
+    @JoinColumn(name = "employee_id", unique = true)
+    private Employee employee;
+    @OneToMany
+    @JoinColumn(name = "cart_id")
+    private List<CartProduct> cartProducts;
 }

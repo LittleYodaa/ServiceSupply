@@ -10,7 +10,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Setter
@@ -19,7 +18,7 @@ import java.util.Set;
 @AllArgsConstructor
 class Store {
     @Id
-    private Long code;
+    private Long id;
     private String name;
     @OneToMany(mappedBy = "store")
     private List<Employee> employees;
@@ -28,7 +27,5 @@ class Store {
     @OneToMany
     @JoinColumn(name = "store_id")
     private List<Order> orders;
-    @OneToMany(mappedBy = "store")
-    private List<OrderProduct> orderProducts;
 
 }

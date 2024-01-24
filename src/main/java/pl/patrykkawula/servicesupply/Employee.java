@@ -21,9 +21,8 @@ class Employee {
     private String password;
     @ManyToOne
     private Store store;
-    @OneToOne
-    @JoinColumn(name = "shopping_cart_id", unique = true)
-    private ShoppingCart shoppingCart;
+    @OneToOne(mappedBy = "employee")
+    private Cart shoppingCart;
     @OneToMany(mappedBy = "employee")
     private List<Order> orders;
 

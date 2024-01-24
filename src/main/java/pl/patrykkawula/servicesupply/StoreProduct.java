@@ -17,9 +17,7 @@ class StoreProduct {
     @JoinColumn(name = "store_id")
     private Store store;
     @ManyToOne
-    @JoinColumn(name = "product_id")
-    private Product product;
-
+    @JoinColumn(name = "product_details_id")
+    private ProductDetails productDetails;
     private Long productQuantity;
-
 }

@@ -3,18 +3,20 @@ package pl.patrykkawula.servicesupply;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.Set;
-
 @Entity
 @Builder
 @Setter
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-class ShoppingCart {
+class CartProduct {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @OneToOne(mappedBy = "shoppingCart")
-    private Employee employee;
+    private Long productQuantity;
+    @OneToOne
+    @JoinColumn(name = "product_details_id", unique = true)
+    private ProductDetails productDetails;
+    @ManyToOne
+    private Cart cart;
 }

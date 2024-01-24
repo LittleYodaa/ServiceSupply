@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Builder
@@ -12,7 +11,7 @@ import java.util.Set;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-class Product {
+class ProductDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -20,8 +19,8 @@ class Product {
     private Brand brand;
     private String name;
     private String link;
-    @OneToMany(mappedBy = "product")
+    @OneToMany(mappedBy = "productDetails")
     private List<StoreProduct> storeProducts;
-    @OneToMany(mappedBy = "product")
+    @OneToMany(mappedBy = "productDetails")
     private List<OrderProduct> orderProducts;
 }

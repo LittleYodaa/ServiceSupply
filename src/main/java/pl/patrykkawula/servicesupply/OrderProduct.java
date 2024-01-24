@@ -9,18 +9,15 @@ import lombok.*;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-
 class OrderProduct {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @ManyToOne
-    @JoinColumn(name = "store_id")
-    private Store store;
-    @ManyToOne
-    @JoinColumn(name = "prodcut_id")
-    private Product product;
+    @JoinColumn(name = "product_details_id")
+    private ProductDetails productDetails;
     private Long productQuantity;
-
-
+    @ManyToOne
+    @JoinColumn(name = "order_id")
+    private Order order;
 }
