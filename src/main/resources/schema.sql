@@ -1,60 +1,60 @@
 CREATE TABLE brand(
     id BIGINT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    name VARCHAR(100)
+    name VARCHAR(100) NOT NULL
 );
 
 CREATE TABLE cart(
     id BIGINT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    employee_id BIGINT
+    employee_id BIGINT NOT NULL
 );
 
 CREATE TABLE cart_product(
     id BIGINT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    product_quantity BIGINT,
-    product_details_id BIGINT,
-    cart_id BIGINT
+    product_quantity BIGINT NOT NULL,
+    product_details_id BIGINT NOT NULL,
+    cart_id BIGINT NOT NULL
 );
 
 CREATE TABLE employee(
     id BIGINT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    first_name VARCHAR(100),
-    last_name VARCHAR(100),
-    email VARCHAR(100),
-    password VARCHAR(200),
-    store_id BIGINT
+    first_name VARCHAR(100) NOT NULL,
+    last_name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    password VARCHAR(200) NOT NULL,
+    store_id BIGINT NOT NULL
 );
 
 CREATE TABLE `order`(
     id BIGINT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    status VARCHAR(100),
-    date_of_order DATE,
-    employee_id BIGINT,
-    store_id BIGINT
+    status VARCHAR(100) NOT NULL,
+    date_of_order DATE NOT NULL,
+    employee_id BIGINT NOT NULL,
+    store_id BIGINT NOT NULL
 );
 
 CREATE TABLE order_product(
     id BIGINT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    order_id BIGINT,
-    product_details_id BIGINT,
-    product_quantity BIGINT
+    order_id BIGINT NOT NULL,
+    product_details_id BIGINT NOT NULL,
+    product_quantity BIGINT NOT NULL
 );
 
 CREATE TABLE product_details(
     id BIGINT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    name VARCHAR(100),
-    link VARCHAR(300),
-    brand_id BIGINT
+    name VARCHAR(100) NOT NULL,
+    link VARCHAR(300) NOT NULL,
+    brand_id BIGINT NOT NULL
 );
 
 CREATE TABLE store(
     id BIGINT PRIMARY KEY NOT NULL,
-    name VARCHAR(100)
+    name VARCHAR(100) NOT NULL
 );
 
 CREATE TABLE store_product(
     id BIGINT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    store_id BIGINT,
-    product_details_id BIGINT,
-    product_quantity BIGINT
+    store_id BIGINT NOT NULL,
+    product_details_id BIGINT NOT NULL,
+    product_quantity BIGINT NOT NULL
 );
 
