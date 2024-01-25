@@ -8,6 +8,8 @@ spring:
   liquibase:
     change-log: classpath:/db/changelog/maser.xml
     enabled: false
-#  sql:
-#    init:
-#      mode: never
+  security:
+    user:
+      name: admin
+      password: pass
+
