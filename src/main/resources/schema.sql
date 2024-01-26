@@ -1,3 +1,13 @@
+DROP TABLE IF EXISTS brand;
+DROP TABLE IF EXISTS cart;
+DROP TABLE IF EXISTS cart_product;
+DROP TABLE IF EXISTS employee;
+DROP TABLE IF EXISTS `order`;
+DROP TABLE IF EXISTS order_product;
+DROP TABLE IF EXISTS product_details;
+DROP TABLE IF EXISTS store;
+DROP TABLE IF EXISTS store_product;
+
 CREATE TABLE brand(
     id BIGINT PRIMARY KEY NOT NULL AUTO_INCREMENT,
     name VARCHAR(100) NOT NULL
@@ -57,4 +67,6 @@ CREATE TABLE store_product(
     product_details_id BIGINT NOT NULL,
     product_quantity BIGINT NOT NULL
 );
+
+
 

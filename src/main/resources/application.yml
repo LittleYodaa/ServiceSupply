@@ -12,4 +12,8 @@ spring:
     user:
       name: admin
       password: pass
+  sql:
+    init:
+      mode: always
+
 
