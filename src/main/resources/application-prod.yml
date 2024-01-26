@@ -1,6 +1,6 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jbdc:mysql://mysql.mikr.us/db_t289
+    url: jdbc:mysql://mysql.mikr.us:3306/db_t289
     username: t289
     password: B851_161775
