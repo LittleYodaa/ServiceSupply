@@ -52,8 +52,11 @@ CREATE TABLE order_product(
 CREATE TABLE product_details(
     id BIGINT PRIMARY KEY NOT NULL AUTO_INCREMENT,
     name VARCHAR(100) NOT NULL,
-    link VARCHAR(300) NOT NULL,
-    brand_id BIGINT NOT NULL
+    link VARCHAR(300),
+    safety_data VARCHAR(300),
+    brand_id BIGINT NOT NULL,
+    gama VARCHAR(100),
+    code VARCHAR(100)
 );
 
 CREATE TABLE store(
