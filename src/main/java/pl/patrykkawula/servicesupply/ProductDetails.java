@@ -15,8 +15,6 @@ class ProductDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @ManyToOne
-    private Brand brand;
     private String name;
     private String link;
     @OneToMany(mappedBy = "productDetails")

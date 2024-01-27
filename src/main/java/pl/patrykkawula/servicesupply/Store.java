@@ -8,6 +8,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import pl.patrykkawula.servicesupply.Employee.Employee;
 
 import java.util.List;
 
@@ -16,7 +17,7 @@ import java.util.List;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-class Store {
+public class Store {
     @Id
     private Long id;
     private String name;

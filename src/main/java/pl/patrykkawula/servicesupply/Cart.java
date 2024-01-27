@@ -2,6 +2,7 @@ package pl.patrykkawula.servicesupply;
 
 import jakarta.persistence.*;
 import lombok.*;
+import pl.patrykkawula.servicesupply.Employee.Employee;
 
 import java.util.List;
 
@@ -11,14 +12,13 @@ import java.util.List;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-class Cart {
+public class Cart {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @OneToOne
     @JoinColumn(name = "employee_id", unique = true)
     private Employee employee;
-    @OneToMany
-    @JoinColumn(name = "cart_id")
+    @OneToMany(mappedBy = "cart")
     private List<CartProduct> cartProducts;
 }

@@ -14,16 +14,15 @@ class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         PathRequest.H2ConsoleRequestMatcher h2ConsoleRequestMatcher = PathRequest.toH2Console();
         http.authorizeHttpRequests(requests -> requests
-                .requestMatchers("/").permitAll()
-                .requestMatchers(h2ConsoleRequestMatcher).permitAll()
-                .anyRequest().authenticated());
-
-        http.formLogin(login -> login.loginPage("/login").permitAll());
-        http.logout(logout -> logout
-                .logoutRequestMatcher(new AntPathRequestMatcher("/logout/**", HttpMethod.GET.name()))
-                .logoutSuccessUrl("/"));
-        http.csrf(csrf -> csrf.ignoringRequestMatchers(PathRequest.toH2Console()));
+                .requestMatchers("/").hasAnyRole("ADMIN", "EMPLOYEE")
+//                .requestMatchers(h2ConsoleRequestMatcher).permitAll()
+                .anyRequest().authenticated()
+        );
+        http.formLogin();
+        http.logout();
+        http.csrf(csrf -> csrf.ignoringRequestMatchers(h2ConsoleRequestMatcher));
         http.headers().frameOptions().sameOrigin();
         return http.build();
     }
+
 }

@@ -1,26 +1,26 @@
 insert into employee
     (id, first_name, last_name, email, password, store_id)
 values
-    (1, 'Cordie', 'Striker', 'cstriker0@independent.co.uk', 'cX3&)D#w|M$HF''Vk', '7976'),
-    (2, 'Massimiliano', 'Zimmermeister', 'mzimmermeister1@prnewswire.com', 'uO5''v|S)Pm7p', '7'),
-    (3, 'Justin', 'Priscott', 'jpriscott2@mit.edu', 'lK3%,)tW6', '0'),
-    (4, 'Christophorus', 'Domokos', 'cdomokos3@alibaba.com', 'pZ6`Z2im?fg>O?', '5542'),
-    (5, 'Kristina', 'Durram', 'kdurram4@diigo.com', 'aO6%/DQ&@96C@Qf', '646'),
-    (6, 'Lizzie', 'Siddaley', 'lsiddaley5@wisc.edu', 'wC4*\Ldr~=', '6470'),
-    (7, 'Town', 'Pero', 'tpero6@youtu.be', 'gM0%Qu>Y*)H+', '7678'),
-    (8, 'Obidiah', 'Harce', 'oharce7@reuters.com', 'hL6.I#>cm,', '0'),
-    (9, 'Brennan', 'Dunstone', 'bdunstone8@prlog.org', 'tV5*+jyXD', '30357'),
-    (10, 'Glynis', 'Muckeen', 'gmuckeen9@oakley.com', 'zJ3.Dol(', '016'),
-    (11, 'Skippy', 'Brandt', 'sbrandta@eepurl.com', 'oJ3''wZLhZ', '15805'),
-    (12, 'Olly', 'Tallowin', 'otallowinb@techcrunch.com', 'fS3?PV''i8jbq(o,x', '138'),
-    (13, 'Elnar', 'Easen', 'eeasenc@squarespace.com', 'uC8)KXtA', '4'),
-    (14, 'Osborn', 'Vipan', 'ovipand@lulu.com', 'pU4$iZ`F+uz!i', '86'),
-    (15, 'Emmanuel', 'Greenaway', 'egreenawaye@usa.gov', 'wT1&91IrbBT~Z', '130'),
-    (16, 'Ulrika', 'Fountain', 'ufountainf@dot.gov', 'hO1!X4TAI', '876'),
-    (17, 'Burton', 'Full', 'bfullg@digg.com', 'yE1>s=IGiek_', '938'),
-    (18, 'Kenyon', 'Lapthorn', 'klapthornh@booking.com', 'xL0|N+AKsr!9w', '371'),
-    (19, 'Kaitlynn', 'Florence', 'kflorencei@theguardian.com', 'sR9|+J!"l3Z=~mGr', '984'),
-    (20, 'Son', 'Colliar', 'scolliarj@fema.gov', 'nP8/*nbH~SHA', '5675');
+    (1, 'Cordie', 'Striker', 'cstriker0@independent.co.uk','{noop}pass' , '7976'),
+    (2, 'Massimiliano', 'Zimmermeister', 'mzimmermeister1@prnewswire.com', '{noop}pass', '7'),
+    (3, 'Justin', 'Priscott', 'jpriscott2@mit.edu', '{noop}pass', '0'),
+    (4, 'Christophorus', 'Domokos', 'cdomokos3@alibaba.com', '{noop}pass', '5542'),
+    (5, 'Kristina', 'Durram', 'kdurram4@diigo.com', '{noop}pass', '646'),
+    (6, 'Lizzie', 'Siddaley', 'lsiddaley5@wisc.edu', '{noop}pass', '6470'),
+    (7, 'Town', 'Pero', 'tpero6@youtu.be', '{noop}pass', '7678'),
+    (8, 'Obidiah', 'Harce', 'oharce7@reuters.com', '{noop}pass', '0'),
+    (9, 'Brennan', 'Dunstone', 'bdunstone8@prlog.org', '{noop}pass', '30357'),
+    (10, 'Glynis', 'Muckeen', 'gmuckeen9@oakley.com', '{noop}pass', '016'),
+    (11, 'Skippy', 'Brandt', 'sbrandta@eepurl.com', '{noop}pass', '15805'),
+    (12, 'Olly', 'Tallowin', 'otallowinb@techcrunch.com', '{noop}pass', '138'),
+    (13, 'Elnar', 'Easen', 'eeasenc@squarespace.com', '{noop}pass', '4'),
+    (14, 'Osborn', 'Vipan', 'ovipand@lulu.com', '{noop}pass', '86'),
+    (15, 'Emmanuel', 'Greenaway', 'egreenawaye@usa.gov', '{noop}pass', '130'),
+    (16, 'Ulrika', 'Fountain', 'ufountainf@dot.gov', '{noop}pass', '876'),
+    (17, 'Burton', 'Full', 'bfullg@digg.com', '{noop}pass', '938'),
+    (18, 'Kenyon', 'Lapthorn', 'klapthornh@booking.com', '{noop}pass', '371'),
+    (19, 'Kaitlynn', 'Florence', 'kflorencei@theguardian.com', '{noop}pass', '984'),
+    (20, 'Son', 'Colliar', 'scolliarj@fema.gov', '{noop}pass', '5675');
 
 
 INSERT INTO brand
@@ -57,4 +57,15 @@ VALUES
     (19, 'SMAR GRAFITOWY 400G', 'null', 'https://drive.google.com/file/d/1XsOAez08QnVMXgw1-mYJyJqqA5Z4tcJP/view?usp=drive_link', 1, 'G1', '215898 '),
     (20, 'BALSAM PIELĘGNACYJNY DO SKÓRY 250ML', 'null', 'ND', 1, 'G1', '420474');
 
+INSERT INTO employee_role
+    (id, name)
+VALUES
+    (1, 'ADMIN'),
+    (2, 'EMPLOYEE');
 
+INSERT INTO
+    employee_roles (employee_id, role_id)
+VALUES
+    (1, 1),
+    (2, 2),
+    (3, 2);
