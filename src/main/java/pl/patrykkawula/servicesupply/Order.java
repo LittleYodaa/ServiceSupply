@@ -2,7 +2,7 @@ package pl.patrykkawula.servicesupply;
 
 import jakarta.persistence.*;
 import lombok.*;
-import pl.patrykkawula.servicesupply.Employee.Employee;
+import pl.patrykkawula.servicesupply.employee.Employee;
 
 import java.time.LocalDate;
 import java.util.List;

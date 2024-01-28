@@ -1,4 +1,4 @@
-package pl.patrykkawula.servicesupply.Employee;
+package pl.patrykkawula.servicesupply.employee;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

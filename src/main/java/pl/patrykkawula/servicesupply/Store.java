@@ -8,7 +8,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import pl.patrykkawula.servicesupply.Employee.Employee;
+import pl.patrykkawula.servicesupply.employee.Employee;
 
 import java.util.List;
 

@@ -2,6 +2,7 @@ package pl.patrykkawula.servicesupply;
 
 import jakarta.persistence.*;
 import lombok.*;
+import pl.patrykkawula.servicesupply.productdetails.ProductDetails;
 
 @Entity
 @Builder
@@ -9,7 +10,7 @@ import lombok.*;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-class OrderProduct {
+public class OrderProduct {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
