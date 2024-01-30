@@ -12,7 +12,7 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        PathRequest.H2ConsoleRequestMatcher h2ConsoleRequestMatcher = PathRequest.toH2Console();
+//        PathRequest.H2ConsoleRequestMatcher h2ConsoleRequestMatcher = PathRequest.toH2Console();
         http.authorizeHttpRequests(requests -> requests
                 .requestMatchers("/").hasAnyRole("ADMIN", "EMPLOYEE")
 //                .requestMatchers(h2ConsoleRequestMatcher).permitAll()
@@ -20,7 +20,8 @@ class SecurityConfig {
         );
         http.formLogin();
         http.logout();
-        http.csrf(csrf -> csrf.ignoringRequestMatchers(h2ConsoleRequestMatcher));
+        http.csrf().disable();
+//        http.csrf(csrf -> csrf.ignoringRequestMatchers(h2ConsoleRequestMatcher));
         http.headers().frameOptions().sameOrigin();
         return http.build();
     }
