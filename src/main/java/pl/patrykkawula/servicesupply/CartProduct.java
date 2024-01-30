@@ -2,6 +2,7 @@ package pl.patrykkawula.servicesupply;
 
 import jakarta.persistence.*;
 import lombok.*;
+import pl.patrykkawula.servicesupply.productdetails.ProductDetails;
 
 @Entity
 @Builder

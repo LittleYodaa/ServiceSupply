@@ -1,4 +1,4 @@
-package pl.patrykkawula.servicesupply.Employee;
+package pl.patrykkawula.servicesupply.employee;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -6,10 +6,7 @@ import pl.patrykkawula.servicesupply.Cart;
 import pl.patrykkawula.servicesupply.Order;
 import pl.patrykkawula.servicesupply.Store;
 
-import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Builder

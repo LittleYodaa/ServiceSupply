@@ -1,7 +1,8 @@
-package pl.patrykkawula.servicesupply;
+package pl.patrykkawula.servicesupply.brand;
 
 import jakarta.persistence.*;
 import lombok.*;
+import pl.patrykkawula.servicesupply.productdetails.ProductDetails;
 
 import java.util.List;
 
@@ -11,12 +12,11 @@ import java.util.List;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-class Brand {
+public class Brand {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    @OneToMany
-    @JoinColumn(name = "brand_id")
+    @OneToMany(mappedBy = "brand")
     List<ProductDetails> products;
 }

@@ -1,4 +1,4 @@
-package pl.patrykkawula.servicesupply.Employee.dtos;
+package pl.patrykkawula.servicesupply.employee.dtos;
 
 import lombok.Builder;
 

@@ -1,7 +1,7 @@
-package pl.patrykkawula.servicesupply.Employee;
+package pl.patrykkawula.servicesupply.employee;
 
 import org.springframework.stereotype.Service;
-import pl.patrykkawula.servicesupply.Employee.dtos.EmployeeCredentialsDto;
+import pl.patrykkawula.servicesupply.employee.dtos.EmployeeCredentialsDto;
 
 import java.util.Optional;
 

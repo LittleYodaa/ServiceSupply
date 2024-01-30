@@ -1,4 +1,4 @@
-package pl.patrykkawula.servicesupply.Employee;
+package pl.patrykkawula.servicesupply.employee;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
