@@ -1,8 +1,11 @@
 package pl.patrykkawula.servicesupply.productdetails.dtos;
 
 import lombok.Builder;
-import pl.patrykkawula.servicesupply.Brand;
+import lombok.Getter;
 
 @Builder
-public record ProductDetailsDto(String brand, String name) {
+public record ProductDetailsDto(
+        Long id,
+        String brand,
+        String name) {
 }

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Dodaj produkt</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+          crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <h1>Dodaj produkt</h1>
+    <hr>
+    <form th:action="@{/productDetails/saveProductDetails}" th:object="${productDetailsSaveDto}" method="POST">
+
+
+        <select id= "brand" name="brand" th:with="brand=*{brand}" class="form-control mb-4 col-4">
+            <option value="0">Wybierz dostawcę</option>
+            <option th:each="brand: ${brandName}" th:value="${brand}" th:text="${brand}"></option>
+        </select>
+
+
+        <input type="text" th:field="*{name}"
+               placeholder="Nazwa produktu" class="form-control mb-4 col-4">
+
+        <input type="text" th:field="*{link}"
+               placeholder="Link do produktu" class="form-control mb-4 col-4">
+
+        <input type="text" th:field="*{gama}"
+               placeholder="Gama produktu" class="form-control mb-4 col-4">
+
+        <input type="text" th:field="*{safetyData}"
+               placeholder="Link do karty charakterystyki" class="form-control mb-4 col-4">
+
+        <input type="text" th:field="*{code}"
+               placeholder="Kod produktu" class="form-control mb-4 col-4">
+
+        <button type="submit" class="btn btn-info col-2">Zapisz produkt</button>
+
+    </form>
+
+</div>
+</body>
+</html>

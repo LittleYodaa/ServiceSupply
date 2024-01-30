@@ -1,4 +1,4 @@
-package pl.patrykkawula.servicesupply;
+package pl.patrykkawula.servicesupply.brand;
 
 import jakarta.persistence.*;
 import lombok.*;

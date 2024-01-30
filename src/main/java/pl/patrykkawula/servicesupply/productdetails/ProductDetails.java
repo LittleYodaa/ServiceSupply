@@ -2,7 +2,7 @@ package pl.patrykkawula.servicesupply.productdetails;
 
 import jakarta.persistence.*;
 import lombok.*;
-import pl.patrykkawula.servicesupply.Brand;
+import pl.patrykkawula.servicesupply.brand.Brand;
 import pl.patrykkawula.servicesupply.OrderProduct;
 import pl.patrykkawula.servicesupply.StoreProduct;
 
@@ -20,6 +20,9 @@ public class ProductDetails {
     private Long id;
     private String name;
     private String link;
+    private String gama;
+    private String safetyData;
+    private String code;
     @OneToMany(mappedBy = "productDetails")
     private List<StoreProduct> storeProducts;
     @OneToMany(mappedBy = "productDetails")

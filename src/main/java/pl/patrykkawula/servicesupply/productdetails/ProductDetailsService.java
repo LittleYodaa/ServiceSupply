@@ -1,7 +1,9 @@
 package pl.patrykkawula.servicesupply.productdetails;
 
 import org.springframework.stereotype.Service;
+import pl.patrykkawula.servicesupply.exception.ProductDetailsNotFoundException;
 import pl.patrykkawula.servicesupply.productdetails.dtos.ProductDetailsDto;
+import pl.patrykkawula.servicesupply.productdetails.dtos.ProductDetailsSaveDto;
 
 import java.util.List;
 
@@ -18,7 +20,17 @@ class ProductDetailsService {
     List<ProductDetailsDto> allProductDetails() {
         return productDetailsRepository.findAll()
                 .stream()
-                .map(productDetailsDtoMapper::map)
+                .map(productDetailsDtoMapper::mapToProductDetailsDto)
                 .toList();
+    }
+
+    void saveProductDetails(ProductDetailsSaveDto productDetailsSaveDto){
+        productDetailsRepository.save(productDetailsDtoMapper.map(productDetailsSaveDto));
+    }
+
+    ProductDetailsSaveDto findProductDetailsById(Long id) {
+       return productDetailsRepository.findById(id).
+               map(productDetailsDtoMapper::mapToProductDetailsSaveDto).
+               orElseThrow(() -> new ProductDetailsNotFoundException(id));
     }
 }
