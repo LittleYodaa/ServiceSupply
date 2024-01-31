@@ -1,11 +1,10 @@
 package pl.patrykkawula.servicesupply.productdetails;
 
-import org.bouncycastle.math.raw.Mod;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import pl.patrykkawula.servicesupply.brand.BrandService;
-import pl.patrykkawula.servicesupply.employee.Employee;
+import pl.patrykkawula.servicesupply.picture.Picture;
 import pl.patrykkawula.servicesupply.productdetails.dtos.ProductDetailsDto;
 import pl.patrykkawula.servicesupply.productdetails.dtos.ProductDetailsSaveDto;
 
@@ -45,11 +44,26 @@ class ProductDetailsController {
     }
 
     @GetMapping("/showFormForUpdate/{id}")
-    public String showForForUpdate(@PathVariable (value = "id") Long id, Model model) {
+    public String showFormForUpdate(@PathVariable (value = "id") Long id, Model model) {
         List<String> allBrandName = brandService.getAllBrandName();
         ProductDetailsSaveDto productDetailsSaveDto = productDetailsService.findProductDetailsById(id);
         model.addAttribute("productDetailsSaveDto", productDetailsSaveDto);
         model.addAttribute("brandName", allBrandName);
-        return "update_product";
+        return "update_product_details";
+    }
+
+    @GetMapping("/deleteProductDetails/{id}")
+    public String deleteProduct(@PathVariable (value = "id") Long id) {
+        productDetailsService.deleteProductDetailsById(id);
+        return "redirect:/productDetails/";
+    }
+    
+    @GetMapping("/getProductInfo/{id}")
+    public String getProductInfo(@PathVariable (value = "id") Long id, Model model) {
+        ProductDetailsSaveDto productDetailsSaveDto = productDetailsService.findProductDetailsById(id);
+        Picture productPicture = productDetailsService.productImage(productDetailsSaveDto.brand());
+        model.addAttribute("productDetailsSaveDto", productDetailsSaveDto);
+        model.addAttribute("productPicture", productPicture);
+        return "product_details_info";
     }
 }

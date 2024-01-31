@@ -16,14 +16,15 @@
         <tr>
             <th>Dostawca</th>
             <th>Produkt</th>
-            <th>Operacje</th>
         </tr>
         </thead>
         <tbody>
         <tr th:each="product : ${productDetailsList}">
             <td th:text="${product.brand()}"></td>
             <td th:text="${product.name()}"></td>
+            <td><a th:href="@{/productDetails/getProductInfo/{id}(id=${product.id()})}" class="btn btn-primary">Info</a></td>
             <td><a th:href="@{/productDetails/showFormForUpdate/{id}(id=${product.id()})}" class="btn btn-primary">Edytuj</a></td>
+            <td><a th:href="@{/productDetails/deleteProductDetails/{id}(id=${product.id()})}" class="btn btn-danger">Usuń</a></td>
         </tr>
         </tbody>
     </table>
