@@ -7,15 +7,25 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
           integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
           crossorigin="anonymous">
-    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" th:href="@{/style.css}">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <script src="https://kit.fontawesome.com/3b2a4d9597.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="main-container d-flex">
         <div class="sidebar" id="side_nav">
-            <div class="header-box">
-                <h1 class="fs-4"><span class="bg-white text-dark rounded shadow px-2 me-2">SS</span><span class="text-white">Service Supply</span></h1>
+            <div class="header-box px-2 pt-3 pb-4">
+                <h1 class="fs-4"><span class="bg-white text-dark rounded shadow px-2 me-2">D</span><span class="text-white">Service Supply</span></h1>
+<!--                <button class="btn d-mb-none d-block close-btn px-1 py-0 text-white"></button>-->
             </div>
+
+            <ul class="list-unstyled px-2">
+                <li class=""><a href="#" class="text-decoration-none px-3 py-2 d-block"><i class="fa-solid fa-wrench"></i> PRODUKTY</a></li>
+                <li class=""><a href="#" class="text-decoration-none px-3 py-2 d-block"><i class="fa-solid fa-cart-shopping"></i> KOSZYK ZAMÓWIEŃ</a></li>
+                <li class=""><a href="#" class="text-decoration-none px-3 py-2 d-block"><i class="fa-solid fa-truck"></i> ZŁOŻONE ZAMÓWIENIA</a></li>
+                <li class=""><a href="#" class="text-decoration-none px-3 py-2 d-block"><i class="fa-solid fa-people-group"></i> PRACOWNICY</a></li>
+                <li class=""><a href="#" class="text-decoration-none px-3 py-2 d-block"><i class="fa-solid fa-warehouse"></i> AKTUALNY ZAPAS</a></li>
+            </ul>
+            <hr class="h-color mx-2">
         </div>
         <div class="content">
 
