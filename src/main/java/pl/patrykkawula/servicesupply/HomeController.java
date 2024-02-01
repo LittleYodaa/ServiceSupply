@@ -10,4 +10,9 @@ class HomeController {
     String home() {
         return "index.html";
     }
+
+    @GetMapping("/workInProgress")
+    String workInProgeress() {
+        return "functionality_in_progress";
+    }
 }

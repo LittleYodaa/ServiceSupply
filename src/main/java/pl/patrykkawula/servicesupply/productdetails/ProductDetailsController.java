@@ -21,7 +21,7 @@ class ProductDetailsController {
         this.brandService = brandService;
     }
 
-    @GetMapping("/")
+    @GetMapping()
     String getAllProductDetails(Model model) {
         List<ProductDetailsDto> productDetailsList = productDetailsService.allProductDetails();
         model.addAttribute("productDetailsList", productDetailsList);
@@ -40,7 +40,7 @@ class ProductDetailsController {
     @PostMapping("/saveProductDetails")
     public String saveProduct(@ModelAttribute("productDetailsSaveDto")ProductDetailsSaveDto productDetailsSaveDto) {
         productDetailsService.saveProductDetails(productDetailsSaveDto);
-        return "redirect:/productDetails/";
+        return "redirect:/productDetails";
     }
 
     @GetMapping("/showFormForUpdate/{id}")
@@ -55,7 +55,7 @@ class ProductDetailsController {
     @GetMapping("/deleteProductDetails/{id}")
     public String deleteProduct(@PathVariable (value = "id") Long id) {
         productDetailsService.deleteProductDetailsById(id);
-        return "redirect:/productDetails/";
+        return "redirect:/productDetails";
     }
     
     @GetMapping("/getProductInfo/{id}")
