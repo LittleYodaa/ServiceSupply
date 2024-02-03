@@ -22,10 +22,10 @@ class ProductDetailsController {
     }
 
     @GetMapping()
-    String getAllProductDetails(Model model) {
-        List<ProductDetailsDto> productDetailsList = productDetailsService.allProductDetails();
+    String findAllProductsDetails(Model model) {
+        List<ProductDetailsDto> productDetailsList = productDetailsService.findAllProductsDetails();
         model.addAttribute("productDetailsList", productDetailsList);
-        return "product_details";
+        return "/productDetails/product_details";
     }
 
     @GetMapping("/showNewProductForm")
@@ -34,7 +34,7 @@ class ProductDetailsController {
         ProductDetailsSaveDto productDetailsSaveDto = ProductDetailsSaveDto.builder().build();
         model.addAttribute("productDetailsSaveDto", productDetailsSaveDto);
         model.addAttribute("brandName", allBrandName);
-        return "new_product_details";
+        return "/productDetails/new_product_details";
     }
 
     @PostMapping("/saveProductDetails")
@@ -49,7 +49,7 @@ class ProductDetailsController {
         ProductDetailsSaveDto productDetailsSaveDto = productDetailsService.findProductDetailsById(id);
         model.addAttribute("productDetailsSaveDto", productDetailsSaveDto);
         model.addAttribute("brandName", allBrandName);
-        return "update_product_details";
+        return "/productDetails/update_product_details";
     }
 
     @GetMapping("/deleteProductDetails/{id}")
@@ -64,6 +64,6 @@ class ProductDetailsController {
         Picture productPicture = productDetailsService.productImage(productDetailsSaveDto.brand());
         model.addAttribute("productDetailsSaveDto", productDetailsSaveDto);
         model.addAttribute("productPicture", productPicture);
-        return "product_details_info";
+        return "/productDetails/product_details_info";
     }
 }

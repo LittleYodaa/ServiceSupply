@@ -35,26 +35,26 @@ VALUES
 insert into employee
     (id, first_name, last_name, email, password, store_id)
 values
-    (1, 'Cordie', 'Striker', 'root@email.com','{noop}pass' , '7976'),
-    (2, 'Massimiliano', 'Zimmermeister', 'mzimmermeister1@prnewswire.com', '{noop}pass', '7'),
-    (3, 'Justin', 'Priscott', 'jpriscott2@mit.edu', '{noop}pass', '0'),
-    (4, 'Christophorus', 'Domokos', 'cdomokos3@alibaba.com', '{noop}pass', '5542'),
-    (5, 'Kristina', 'Durram', 'kdurram4@diigo.com', '{noop}pass', '646'),
-    (6, 'Lizzie', 'Siddaley', 'lsiddaley5@wisc.edu', '{noop}pass', '6470'),
-    (7, 'Town', 'Pero', 'tpero6@youtu.be', '{noop}pass', '7678'),
-    (8, 'Obidiah', 'Harce', 'oharce7@reuters.com', '{noop}pass', '0'),
-    (9, 'Brennan', 'Dunstone', 'bdunstone8@prlog.org', '{noop}pass', '30357'),
-    (10, 'Glynis', 'Muckeen', 'gmuckeen9@oakley.com', '{noop}pass', '016'),
-    (11, 'Skippy', 'Brandt', 'sbrandta@eepurl.com', '{noop}pass', '15805'),
-    (12, 'Olly', 'Tallowin', 'otallowinb@techcrunch.com', '{noop}pass', '138'),
-    (13, 'Elnar', 'Easen', 'eeasenc@squarespace.com', '{noop}pass', '4'),
-    (14, 'Osborn', 'Vipan', 'ovipand@lulu.com', '{noop}pass', '86'),
-    (15, 'Emmanuel', 'Greenaway', 'egreenawaye@usa.gov', '{noop}pass', '130'),
-    (16, 'Ulrika', 'Fountain', 'ufountainf@dot.gov', '{noop}pass', '876'),
-    (17, 'Burton', 'Full', 'bfullg@digg.com', '{noop}pass', '938'),
-    (18, 'Kenyon', 'Lapthorn', 'klapthornh@booking.com', '{noop}pass', '371'),
-    (19, 'Kaitlynn', 'Florence', 'kflorencei@theguardian.com', '{noop}pass', '984'),
-    (20, 'Son', 'Colliar', 'scolliarj@fema.gov', '{noop}pass', '5675');
+    (1, 'Cordie', 'Striker', 'root@email.com','{noop}pass' , '729'),
+    (2, 'Massimiliano', 'Zimmermeister', 'mzimmermeister1@prnewswire.com', '{noop}pass', '651'),
+    (3, 'Justin', 'Priscott', 'jpriscott2@mit.edu', '{noop}pass', '729'),
+    (4, 'Christophorus', 'Domokos', 'cdomokos3@alibaba.com', '{noop}pass', '651'),
+    (5, 'Kristina', 'Durram', 'kdurram4@diigo.com', '{noop}pass', '729'),
+    (6, 'Lizzie', 'Siddaley', 'lsiddaley5@wisc.edu', '{noop}pass', '651'),
+    (7, 'Town', 'Pero', 'tpero6@youtu.be', '{noop}pass', '729'),
+    (8, 'Obidiah', 'Harce', 'oharce7@reuters.com', '{noop}pass', '651'),
+    (9, 'Brennan', 'Dunstone', 'bdunstone8@prlog.org', '{noop}pass', '729'),
+    (10, 'Glynis', 'Muckeen', 'gmuckeen9@oakley.com', '{noop}pass', '651'),
+    (11, 'Skippy', 'Brandt', 'sbrandta@eepurl.com', '{noop}pass', '729'),
+    (12, 'Olly', 'Tallowin', 'otallowinb@techcrunch.com', '{noop}pass', '651'),
+    (13, 'Elnar', 'Easen', 'eeasenc@squarespace.com', '{noop}pass', '729'),
+    (14, 'Osborn', 'Vipan', 'ovipand@lulu.com', '{noop}pass', '651'),
+    (15, 'Emmanuel', 'Greenaway', 'egreenawaye@usa.gov', '{noop}pass', '729'),
+    (16, 'Ulrika', 'Fountain', 'ufountainf@dot.gov', '{noop}pass', '651'),
+    (17, 'Burton', 'Full', 'bfullg@digg.com', '{noop}pass', '729'),
+    (18, 'Kenyon', 'Lapthorn', 'klapthornh@booking.com', '{noop}pass', '651'),
+    (19, 'Kaitlynn', 'Florence', 'kflorencei@theguardian.com', '{noop}pass', '729'),
+    (20, 'Son', 'Colliar', 'scolliarj@fema.gov', '{noop}pass', '651');
 
 INSERT INTO employee_role
     (id, name)
@@ -68,3 +68,9 @@ VALUES
     (1, 1),
     (2, 2),
     (3, 2);
+
+INSERT INTO store
+(id, name)
+VALUES
+    (729, "RUMIA"),
+    (686, "GDAŃSK KARTUSKA");

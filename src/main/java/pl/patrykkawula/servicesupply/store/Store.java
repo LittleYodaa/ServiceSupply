@@ -1,4 +1,4 @@
-package pl.patrykkawula.servicesupply;
+package pl.patrykkawula.servicesupply.store;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -8,6 +8,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import pl.patrykkawula.servicesupply.Order;
+import pl.patrykkawula.servicesupply.StoreProduct;
 import pl.patrykkawula.servicesupply.employee.Employee;
 
 import java.util.List;

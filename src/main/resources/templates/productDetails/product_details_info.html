@@ -13,10 +13,10 @@
   <img class="card-img-top" th:src="@{|/images/${productPicture.getFileName()}|}" alt="Card image cap">
   <div class="card-body">
     <h5 th:text="*{brand()}" class="card-title">Card title</h5>
-    <h5 th:text="*{name}" class="card-title">Card title</h5>
+    <h5 th:text="*{name().toUpperCase()}" class="card-title">Card title</h5>
     <p th:text="|Link do produktu: *{link()}|" class="card-text">Product link</p>
     <p th:text="|Karta charakterystyki: *{safetyData()}|" class="card-text">Product link</p>
-    <p th:text="|Gama produtku: *{gama()}|" class="card-text">Product link</p>
+    <p th:text="|Gama produtku: *{gama().toUpperCase()}|" class="card-text">Product link</p>
     <p th:text="|Kod produktu: *{code()}|" class="card-text">Product link</p>
     <a th:href="@{/productDetails/}" class="btn btn-primary">Powrót</a>
   </div>

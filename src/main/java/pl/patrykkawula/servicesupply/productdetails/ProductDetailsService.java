@@ -21,7 +21,7 @@ class ProductDetailsService {
         this.pictureRepository = pictureRepository;
     }
 
-    List<ProductDetailsDto> allProductDetails() {
+    List<ProductDetailsDto> findAllProductsDetails() {
         return productDetailsRepository.findAll()
                 .stream()
                 .map(productDetailsDtoMapper::mapToProductDetailsDto)

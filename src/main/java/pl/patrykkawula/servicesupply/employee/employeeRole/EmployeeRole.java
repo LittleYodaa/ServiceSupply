@@ -1,4 +1,4 @@
-package pl.patrykkawula.servicesupply.employee;
+package pl.patrykkawula.servicesupply.employee.employeeRole;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -12,9 +12,9 @@ import lombok.*;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-class EmployeeRole {
+public class EmployeeRole {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     private String name;
 }

@@ -15,10 +15,7 @@
 
         <input type="hidden" th:field="*{id}">
 
-        <select id= "brand" name="brand" th:with="brand=*{brand}" class="form-control mb-4 col-4">
-            <option th:each="brand: ${brandName}" th:value="${brand}" th:text="${brand}"></option>
-        </select>
-
+        <input type="text" th:field="*{brand}" class="form-control mb-4 col-4" readonly>
 
         <input type="text" th:field="*{name}" class="form-control mb-4 col-4">
 
@@ -31,7 +28,6 @@
         <input type="text" th:field="*{code}" class="form-control mb-4 col-4">
 
         <button type="submit" class="btn btn-info col-2">Zapisz produkt</button>
-
     </form>
 
 </div>

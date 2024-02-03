@@ -4,7 +4,8 @@ import jakarta.persistence.*;
 import lombok.*;
 import pl.patrykkawula.servicesupply.Cart;
 import pl.patrykkawula.servicesupply.Order;
-import pl.patrykkawula.servicesupply.Store;
+import pl.patrykkawula.servicesupply.employee.employeeRole.EmployeeRole;
+import pl.patrykkawula.servicesupply.store.Store;
 
 import java.util.List;
 
@@ -27,9 +28,9 @@ public class Employee {
     joinColumns = @JoinColumn(name = "employee_id", referencedColumnName = "id"),
     inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
     private List<EmployeeRole> roles;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Store store;
-    @OneToOne(mappedBy = "employee")
+    @OneToOne(mappedBy = "employee", fetch = FetchType.LAZY)
     private Cart shoppingCart;
     @OneToMany(mappedBy = "employee")
     private List<Order> orders;

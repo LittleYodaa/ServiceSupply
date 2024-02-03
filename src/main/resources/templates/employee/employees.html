@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Lista produktów</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+        crossorigin="anonymous">
+  <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div>
+  <nav class="navbar navbar-dark bg-light">
+    <a class="btn btn-primary ms-auto me-md-2" type="button" th:href="@{/}">Strona główna</a>
+  </nav>
+</div>
+<div class="container">
+  <h1>Pracownicy</h1>
+  <a th:href="@{/static}" class="btn btn-primary btn-sm mb-3">Dodaj pracownika</a>
+  <table class="table table-striped table-responsive-md">
+    <thead>
+    <tr>
+      <th>Pracownik</th>
+      <th>Adres email</th>
+      <th>Sklep</th>
+      <th></th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="employee : ${employeeList}">
+      <td th:text="|${employee.firstName().toUpperCase()} ${employee.lastName().toUpperCase()}|"></td>
+      <td th:text="${employee.email()}"></td>
+      <td th:text="${employee.storeId()}"></td>
+      <td><a th:href="@{/static}" class="btn btn-primary">Edytuj</a>
+      </td>
+      <td><a th:href="@{/static}" class="btn btn-danger">Usuń</a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>

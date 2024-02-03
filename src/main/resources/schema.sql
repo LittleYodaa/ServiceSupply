@@ -7,8 +7,8 @@ DROP TABLE IF EXISTS order_product;
 DROP TABLE IF EXISTS store;
 DROP TABLE IF EXISTS store_product;
 DROP TABLE IF EXISTS employee_roles;
-DROP TABLE IF EXISTS employee_role;
 DROP TABLE IF EXISTS employee;
+DROP TABLE IF EXISTS employee_role;
 
 CREATE TABLE brand(
     id BIGINT PRIMARY KEY NOT NULL AUTO_INCREMENT,
@@ -47,6 +47,11 @@ CREATE TABLE employee_roles(
     FOREIGN KEY (role_id) REFERENCES employee_role(id)
 );
 
+CREATE TABLE store(
+                      id BIGINT PRIMARY KEY NOT NULL,
+                      name VARCHAR(100) NOT NULL
+);
+
 CREATE TABLE cart(
     id BIGINT PRIMARY KEY NOT NULL AUTO_INCREMENT,
     employee_id BIGINT NOT NULL
@@ -72,11 +77,6 @@ CREATE TABLE order_product(
     order_id BIGINT NOT NULL,
     product_details_id BIGINT NOT NULL,
     product_quantity BIGINT NOT NULL
-);
-
-CREATE TABLE store(
-    id BIGINT PRIMARY KEY NOT NULL,
-    name VARCHAR(100) NOT NULL
 );
 
 CREATE TABLE store_product(
