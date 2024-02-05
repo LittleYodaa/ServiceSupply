@@ -72,5 +72,5 @@ VALUES
 INSERT INTO store
 (id, name)
 VALUES
-    (1, "RUMIA"),
-    (2, "GDAŃSK KARTUSKA");
+    (729, 'RUMIA'),
+    (686, 'GDAŃSK KARTUSKA');
