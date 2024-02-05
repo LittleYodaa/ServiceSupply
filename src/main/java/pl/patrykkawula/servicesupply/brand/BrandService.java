@@ -1,27 +1,29 @@
 package pl.patrykkawula.servicesupply.brand;
 
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.GetMapping;
+import pl.patrykkawula.servicesupply.brand.dtos.BrandDtoMapper;
+import pl.patrykkawula.servicesupply.brand.dtos.BrandNameDto;
 import pl.patrykkawula.servicesupply.exception.BrandNotFoundException;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class BrandService {
     private final BrandRepository brandRepository;
+    private final BrandDtoMapper brandDtoMapper;
 
-    BrandService(BrandRepository brandRepository) {
+    BrandService(BrandRepository brandRepository, BrandDtoMapper brandDtoMapper) {
         this.brandRepository = brandRepository;
+        this.brandDtoMapper = brandDtoMapper;
     }
 
     public Brand findByName(String name) {
         return brandRepository.findByName(name).orElseThrow(() -> new BrandNotFoundException(name));
     }
 
-    public List<String> getAllBrandName(){
+    public List<BrandNameDto> getAllBrandName(){
         return brandRepository.findAll().stream()
-                .map(Brand::getName)
+                .map(brandDtoMapper::mapToBrandNameDto)
                 .toList();
     }
 }

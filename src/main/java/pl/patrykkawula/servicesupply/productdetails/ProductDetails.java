@@ -1,6 +1,8 @@
 package pl.patrykkawula.servicesupply.productdetails;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import lombok.*;
 import pl.patrykkawula.servicesupply.brand.Brand;
 import pl.patrykkawula.servicesupply.OrderProduct;
@@ -27,12 +29,11 @@ public class ProductDetails {
     private List<StoreProduct> storeProducts;
     @OneToMany(mappedBy = "productDetails")
     private List<OrderProduct> orderProducts;
-
     @ManyToOne
     @JoinColumn(name = "brand_id")
     private Brand brand;
 
-    public String getBrandName(){
+    public String getBrandName() {
         return brand.getName();
     }
 }

@@ -30,25 +30,21 @@ hr.h-color {
     color: #fff;
 }
 
-/*.imgbox {*/
-/*    display: grid;*/
-/*}*/
-
-/*.center-fit {*/
-/*    max-height: 100%;*/
-/*    max-width: 100%;*/
-/*    margin: auto;*/
-/*}*/
-
 .imgbox {
     height: 100%;
     margin: 0;
     padding: 0;
 }
+
 .center-fit {
     padding: 0;
     display: block;
     margin: 0 auto;
     max-height: 100%;
     max-width: 100%;
+}
+
+.error {
+    color: red;
+    font-size: 0.8rem;
 }
