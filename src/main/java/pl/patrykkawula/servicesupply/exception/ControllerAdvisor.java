@@ -18,7 +18,7 @@ class ControllerAdvisor {
         return "/errorView/default_error_view";
     }
 
-    @ExceptionHandler(ProductDetailsNotFoundException.class)
+    @ExceptionHandler(BrandNotFoundException.class)
     public String handle(HttpServletRequest request,
                          BrandNotFoundException exception, Model model) {
         ModelAndView mav = new ModelAndView();
@@ -27,7 +27,7 @@ class ControllerAdvisor {
         return "/errorView/default_error_view";
     }
 
-    @ExceptionHandler(ProductDetailsNotFoundException.class)
+    @ExceptionHandler(StoreNotFoundException.class)
     public String handle(HttpServletRequest request,
                          StoreNotFoundException exception, Model model) {
         ModelAndView mav = new ModelAndView();

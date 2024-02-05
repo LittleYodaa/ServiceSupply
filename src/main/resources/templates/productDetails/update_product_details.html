@@ -18,16 +18,21 @@
 
         <input type="text" th:field="*{brand}" class="form-control mb-4 col-4" readonly>
 
-        <input type="text" th:field="*{name}" class="form-control mb-4 col-4">
+        <input type="text" th:field="*{name}" class="form-control mb-4 col-4"
+               placeholder="Nazwa produktu">
         <p th:errors="*{name}" class="error"></p>
 
-        <input type="text" th:field="*{link}" class="form-control mb-4 col-4">
+        <input type="text" th:field="*{link}" class="form-control mb-4 col-4"
+               placeholder="Link do produktu">
 
-        <input type="text" th:field="*{gama}" class="form-control mb-4 col-4">
+        <input type="text" th:field="*{gama}" class="form-control mb-4 col-4"
+               placeholder="Gama produktu">
 
-        <input type="text" th:field="*{safetyData}" class="form-control mb-4 col-4">
+        <input type="text" th:field="*{safetyData}" class="form-control mb-4 col-4"
+               placeholder="Link do karty charakterystyki">
 
-        <input type="text" th:field="*{code}" class="form-control mb-4 col-4">
+        <input type="text" th:field="*{code}" class="form-control mb-4 col-4"
+               placeholder="Kod produktu">
 
         <button type="submit" class="btn btn-info col-2">Zapisz produkt</button>
     </form>

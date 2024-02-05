@@ -21,7 +21,7 @@ class SecurityConfig {
         http.formLogin();
         http.logout();
 //        http.csrf().disable();
-        http.csrf(csrf -> csrf.ignoringRequestMatchers(h2ConsoleRequestMatcher));
+//        http.csrf(csrf -> csrf.ignoringRequestMatchers(h2ConsoleRequestMatcher));
         http.headers().frameOptions().sameOrigin();
         return http.build();
     }
