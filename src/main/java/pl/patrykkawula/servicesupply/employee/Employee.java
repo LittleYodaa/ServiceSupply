@@ -28,7 +28,8 @@ public class Employee {
     joinColumns = @JoinColumn(name = "employee_id", referencedColumnName = "id"),
     inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
     private List<EmployeeRole> roles;
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "store_id")
     private Store store;
     @OneToOne(mappedBy = "employee", fetch = FetchType.LAZY)
     private Cart shoppingCart;

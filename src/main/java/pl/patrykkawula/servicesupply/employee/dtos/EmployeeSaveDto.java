@@ -10,6 +10,6 @@ public record EmployeeSaveDto(
         String lastName,
         String email,
         String password,
-        Long storeId,
-        Long roleId) {
+        String storeName,
+        String roleName) {
 }

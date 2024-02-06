@@ -8,4 +8,6 @@ import java.util.List;
 public record EmployeeCredentialsDto(
         String email,
         String password,
-        List<String> roles){}
+        List<String> roles){
+
+}

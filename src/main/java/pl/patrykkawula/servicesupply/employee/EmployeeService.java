@@ -1,8 +1,7 @@
 package pl.patrykkawula.servicesupply.employee;
 
 import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.transaction.annotation.Transactional;
 import pl.patrykkawula.servicesupply.employee.dtos.EmployeeCredentialsDto;
 import pl.patrykkawula.servicesupply.employee.dtos.EmployeeSaveDto;
 import pl.patrykkawula.servicesupply.employee.dtos.EmployeeViewDto;
@@ -25,7 +24,7 @@ class EmployeeService {
                 .map(employeeDtoMapper::mapToEmployeeCredentialsDto);
     }
 
-    List<EmployeeViewDto> findAllEmplyees() {
+    List<EmployeeViewDto> findAllEmployees() {
         return employeeRepository.findAll()
                 .stream()
                 .map(employeeDtoMapper::mapToEmployeeViewDto)

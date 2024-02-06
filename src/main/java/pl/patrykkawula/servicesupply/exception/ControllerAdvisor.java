@@ -15,7 +15,7 @@ class ControllerAdvisor {
         ModelAndView mav = new ModelAndView();
         model.addAttribute("exception", exception);
         model.addAttribute("url", request.getRequestURL());
-        return "/errorView/default_error_view";
+        return "errorView/default_error_view";
     }
 
     @ExceptionHandler(BrandNotFoundException.class)
@@ -24,7 +24,7 @@ class ControllerAdvisor {
         ModelAndView mav = new ModelAndView();
         model.addAttribute("exception", exception);
         model.addAttribute("url", request.getRequestURL());
-        return "/errorView/default_error_view";
+        return "errorView/default_error_view";
     }
 
     @ExceptionHandler(StoreNotFoundException.class)
@@ -33,6 +33,6 @@ class ControllerAdvisor {
         ModelAndView mav = new ModelAndView();
         model.addAttribute("exception", exception);
         model.addAttribute("url", request.getRequestURL());
-        return "/errorView/default_error_view";
+        return "errorView/default_error_view";
     }
 }

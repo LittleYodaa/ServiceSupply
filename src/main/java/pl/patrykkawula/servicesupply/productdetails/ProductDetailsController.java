@@ -74,8 +74,6 @@ class ProductDetailsController {
         }
     }
 
-
-
     @GetMapping("/deleteProductDetails/{id}")
     public String deleteProduct(@PathVariable(value = "id") Long id) {
         productDetailsService.deleteProductDetailsById(id);

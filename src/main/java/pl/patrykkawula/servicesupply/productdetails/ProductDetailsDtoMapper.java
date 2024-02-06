@@ -32,6 +32,10 @@ class ProductDetailsDtoMapper {
                 .build();
     }
 
+    //todo
+    //zmienić brand na dto
+
+
     ProductDetailsSaveDto mapToProductDetailsSaveDto(ProductDetails productDetails) {
         return ProductDetailsSaveDto.builder()
                 .id(productDetails.getId())

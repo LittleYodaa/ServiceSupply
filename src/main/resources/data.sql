@@ -7,6 +7,12 @@ VALUES
     (4, 'BTWIN'),
     (5, 'DYSTRYBUCJA ZEWNĘTRZNA');
 
+INSERT INTO store
+(id, name)
+VALUES
+    (729, 'RUMIA'),
+    (686, 'GDAŃSK KARTUSKA');
+
 
 INSERT INTO product_details
     (id, name, link, safety_data, brand_id, gama, code)
@@ -36,25 +42,25 @@ insert into employee
     (id, first_name, last_name, email, password, store_id)
 values
     (1, 'Cordie', 'Striker', 'root@email.com','{noop}pass' , '729'),
-    (2, 'Massimiliano', 'Zimmermeister', 'mzimmermeister1@prnewswire.com', '{noop}pass', '651'),
+    (2, 'Massimiliano', 'Zimmermeister', 'mzimmermeister1@prnewswire.com', '{noop}pass', '686'),
     (3, 'Justin', 'Priscott', 'jpriscott2@mit.edu', '{noop}pass', '729'),
-    (4, 'Christophorus', 'Domokos', 'cdomokos3@alibaba.com', '{noop}pass', '651'),
+    (4, 'Christophorus', 'Domokos', 'cdomokos3@alibaba.com', '{noop}pass', '686'),
     (5, 'Kristina', 'Durram', 'kdurram4@diigo.com', '{noop}pass', '729'),
-    (6, 'Lizzie', 'Siddaley', 'lsiddaley5@wisc.edu', '{noop}pass', '651'),
+    (6, 'Lizzie', 'Siddaley', 'lsiddaley5@wisc.edu', '{noop}pass', '686'),
     (7, 'Town', 'Pero', 'tpero6@youtu.be', '{noop}pass', '729'),
-    (8, 'Obidiah', 'Harce', 'oharce7@reuters.com', '{noop}pass', '651'),
+    (8, 'Obidiah', 'Harce', 'oharce7@reuters.com', '{noop}pass', '686'),
     (9, 'Brennan', 'Dunstone', 'bdunstone8@prlog.org', '{noop}pass', '729'),
-    (10, 'Glynis', 'Muckeen', 'gmuckeen9@oakley.com', '{noop}pass', '651'),
+    (10, 'Glynis', 'Muckeen', 'gmuckeen9@oakley.com', '{noop}pass', '686'),
     (11, 'Skippy', 'Brandt', 'sbrandta@eepurl.com', '{noop}pass', '729'),
-    (12, 'Olly', 'Tallowin', 'otallowinb@techcrunch.com', '{noop}pass', '651'),
+    (12, 'Olly', 'Tallowin', 'otallowinb@techcrunch.com', '{noop}pass', '686'),
     (13, 'Elnar', 'Easen', 'eeasenc@squarespace.com', '{noop}pass', '729'),
-    (14, 'Osborn', 'Vipan', 'ovipand@lulu.com', '{noop}pass', '651'),
+    (14, 'Osborn', 'Vipan', 'ovipand@lulu.com', '{noop}pass', '686'),
     (15, 'Emmanuel', 'Greenaway', 'egreenawaye@usa.gov', '{noop}pass', '729'),
-    (16, 'Ulrika', 'Fountain', 'ufountainf@dot.gov', '{noop}pass', '651'),
+    (16, 'Ulrika', 'Fountain', 'ufountainf@dot.gov', '{noop}pass', '686'),
     (17, 'Burton', 'Full', 'bfullg@digg.com', '{noop}pass', '729'),
-    (18, 'Kenyon', 'Lapthorn', 'klapthornh@booking.com', '{noop}pass', '651'),
+    (18, 'Kenyon', 'Lapthorn', 'klapthornh@booking.com', '{noop}pass', '686'),
     (19, 'Kaitlynn', 'Florence', 'kflorencei@theguardian.com', '{noop}pass', '729'),
-    (20, 'Son', 'Colliar', 'scolliarj@fema.gov', '{noop}pass', '651');
+    (20, 'Son', 'Colliar', 'scolliarj@fema.gov', '{noop}pass', '686');
 
 INSERT INTO employee_role
     (id, name)
@@ -69,8 +75,4 @@ VALUES
     (2, 2),
     (3, 2);
 
-INSERT INTO store
-(id, name)
-VALUES
-    (729, 'RUMIA'),
-    (686, 'GDAŃSK KARTUSKA');
+

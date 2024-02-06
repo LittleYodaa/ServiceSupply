@@ -4,4 +4,11 @@ public class StoreNotFoundException extends RuntimeException {
     public StoreNotFoundException(Long id) {
         super("Store with id %d not found".formatted(id));
     }
+
+    public StoreNotFoundException(String name) {
+        super("Store with id %s not found".formatted(name));
+    }
+
+    //todo
+    //to chyba powinno działać?
 }
