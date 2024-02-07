@@ -13,7 +13,7 @@ public record EmployeeSaveDto(
         @Size(min = 2, message = "Nazwisko musi mieć minimum 2 litery")
         String lastName,
         @NotNull
-        @NotBlank
+        @NotBlank(message = "Wprowadź adres email")
         @Email(message = "Nieprawidłowy format email")
         String email,
         @Size(min = 4, message = "Minimalna długość hasła to 4 znaki")
