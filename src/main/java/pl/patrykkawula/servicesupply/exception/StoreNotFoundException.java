@@ -6,7 +6,7 @@ public class StoreNotFoundException extends RuntimeException {
     }
 
     public StoreNotFoundException(String name) {
-        super("Store with id %s not found".formatted(name));
+        super("Store with name %s not found".formatted(name));
     }
 
     //todo

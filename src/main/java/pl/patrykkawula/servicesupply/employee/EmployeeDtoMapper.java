@@ -49,6 +49,7 @@ class EmployeeDtoMapper {
                 .firstName(employeeSaveDto.firstName())
                 .lastName(employeeSaveDto.lastName())
                 .email(employeeSaveDto.email())
+                .password(employeeSaveDto.password())
                 .store(findStoreByName(employeeSaveDto.storeName()))
                 .roles(getRolesByRoleName(employeeSaveDto.roleName()))
                 .build();

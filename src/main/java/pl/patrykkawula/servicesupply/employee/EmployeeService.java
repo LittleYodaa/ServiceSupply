@@ -1,7 +1,6 @@
 package pl.patrykkawula.servicesupply.employee;
 
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import pl.patrykkawula.servicesupply.employee.dtos.EmployeeCredentialsDto;
 import pl.patrykkawula.servicesupply.employee.dtos.EmployeeSaveDto;
 import pl.patrykkawula.servicesupply.employee.dtos.EmployeeViewDto;
@@ -33,6 +32,6 @@ class EmployeeService {
 
 
     void saveEmployee(EmployeeSaveDto employeeSaveDto) {
-        employeeDtoMapper.map(employeeSaveDto);
+        employeeRepository.save(employeeDtoMapper.map(employeeSaveDto));
     }
 }

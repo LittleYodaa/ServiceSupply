@@ -1,7 +1,9 @@
 package pl.patrykkawula.servicesupply.employee;
 
+import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -41,16 +43,23 @@ class EmployeeController {
         EmployeeSaveDto employeeSaveDto = EmployeeSaveDto.builder().build();
         List<StoreDto> allStores = storeService.getAllStores();
         model.addAttribute("employeeRoles", allEmployeeRoleDto);
-        model.addAttribute("employee", employeeSaveDto);
+        model.addAttribute("employeeSaveDto", employeeSaveDto);
         model.addAttribute("stores", allStores);
         return "/employee/new_employee";
     }
 
     @PostMapping("/addEmployee")
-    String saveEmplyee(@ModelAttribute ("employeeSaveDto") EmployeeSaveDto employeeSaveDto) {
-        employeeService.saveEmployee(employeeSaveDto);
-        return "redirect/employees";
+    String saveEmplyee(@Valid @ModelAttribute("employeeSaveDto") EmployeeSaveDto employeeSaveDto, BindingResult bindingResult, Model model) {
+        if (bindingResult.hasErrors()) {
+            List<StoreDto> allStores = storeService.getAllStores();
+            List<EmployeeRoleDto> allEmployeeRoleDto = employeeRoleService.getAllEmployeeRoleDto();
+            model.addAttribute("stores", allStores);
+            model.addAttribute("employeeRoles", allEmployeeRoleDto);
+            return "/employee/new_employee";
+        } else {
+            employeeService.saveEmployee(employeeSaveDto);
+            return "redirect:/employees";
+        }
     }
-
 
 }
