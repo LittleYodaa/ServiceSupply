@@ -4,10 +4,7 @@ import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import pl.patrykkawula.servicesupply.employee.dtos.EmployeeSaveDto;
 import pl.patrykkawula.servicesupply.employee.dtos.EmployeeViewDto;
 import pl.patrykkawula.servicesupply.employee.employeeRole.EmployeeRoleService;
@@ -60,6 +57,12 @@ class EmployeeController {
             employeeService.saveEmployee(employeeSaveDto);
             return "redirect:/employees";
         }
+    }
+
+    @GetMapping("/deleteEmployee/{id}")
+    String deleteEmployeeById(@PathVariable (value = "id") Long id) {
+        employeeService.deleteEmployeeById(id);
+        return "redirect:/employees";
     }
 
 }

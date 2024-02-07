@@ -34,4 +34,8 @@ class EmployeeService {
     void saveEmployee(EmployeeSaveDto employeeSaveDto) {
         employeeRepository.save(employeeDtoMapper.map(employeeSaveDto));
     }
+
+    void deleteEmployeeById(Long id) {
+        employeeRepository.deleteById(id);
+    }
 }

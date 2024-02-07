@@ -37,6 +37,7 @@ class EmployeeDtoMapper {
 
     EmployeeViewDto mapToEmployeeViewDto(Employee employee){
         return EmployeeViewDto.builder()
+                .id(employee.getId())
                 .firstName(employee.getFirstName())
                 .lastName(employee.getLastName())
                 .email(employee.getEmail())
