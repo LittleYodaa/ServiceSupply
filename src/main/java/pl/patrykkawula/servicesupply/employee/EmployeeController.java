@@ -31,7 +31,7 @@ class EmployeeController {
     String findAllEmployees(Model model) {
         List<EmployeeViewDto> employeeList = employeeService.findAllEmployees();
         model.addAttribute("employeeList", employeeList);
-        return "/employee/employees";
+        return "employees";
     }
 
     @GetMapping("/showNewEmployeeForm")
@@ -42,7 +42,7 @@ class EmployeeController {
         model.addAttribute("employeeRoles", allEmployeeRoleDto);
         model.addAttribute("employeeSaveDto", employeeSaveDto);
         model.addAttribute("stores", allStores);
-        return "/employee/new_employee";
+        return "new_employee";
     }
 
     @PostMapping("/addEmployee")
@@ -52,7 +52,7 @@ class EmployeeController {
             List<EmployeeRoleDto> allEmployeeRoleDto = employeeRoleService.getAllEmployeeRoleDto();
             model.addAttribute("stores", allStores);
             model.addAttribute("employeeRoles", allEmployeeRoleDto);
-            return "/employee/new_employee";
+            return "new_employee";
         } else {
             employeeService.saveEmployee(employeeSaveDto);
             return "redirect:/employees";

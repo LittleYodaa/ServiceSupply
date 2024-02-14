@@ -37,7 +37,7 @@ class ProductDetailsController {
         ProductDetailsSaveDto productDetailsSaveDto = ProductDetailsSaveDto.builder().build();
         model.addAttribute("productDetailsSaveDto", productDetailsSaveDto);
         model.addAttribute("brandName", allBrandName);
-        return "/productDetails/new_product_details";
+        return "new_product_details";
     }
 
     @PostMapping("/saveProductDetails")
@@ -48,7 +48,7 @@ class ProductDetailsController {
             ProductDetailsSaveDto productDetailsSaveDtoToForm = ProductDetailsSaveDto.builder().build();
             model.addAttribute("productDetailsSaveDtoToForm", productDetailsSaveDtoToForm);
             model.addAttribute("brandName", allBrandName);
-            return "/productDetails/new_product_details";
+            return "new_product_details";
         } else {
             productDetailsService.saveProductDetails(productDetailsSaveDto);
             return "redirect:/productDetails";
@@ -59,7 +59,7 @@ class ProductDetailsController {
     public String showFormForUpdate(@PathVariable(value = "id") Long id, Model model) {
         ProductDetailsSaveDto productDetailsSaveDto = productDetailsService.findProductDetailsById(id);
         model.addAttribute("productDetailsSaveDto", productDetailsSaveDto);
-        return "/productDetails/update_product_details";
+        return "update_product_details";
     }
 
     @PostMapping("/updateProductDetails")
@@ -67,7 +67,7 @@ class ProductDetailsController {
                                 BindingResult bindingResult, Model model) {
         if (bindingResult.hasErrors()) {
             model.addAttribute(productDetailsSaveDto);
-            return "/productDetails/update_product_details";
+            return "update_product_details";
         } else {
             productDetailsService.saveProductDetails(productDetailsSaveDto);
             return "redirect:/productDetails";
@@ -86,6 +86,6 @@ class ProductDetailsController {
         Picture productPicture = productDetailsService.productImage(productDetailsSaveDto.brand());
         model.addAttribute("productDetailsSaveDto", productDetailsSaveDto);
         model.addAttribute("productPicture", productPicture);
-        return "/productDetails/product_details_info";
+        return "product_details_info";
     }
 }
