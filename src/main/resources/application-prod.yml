@@ -3,7 +3,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://mysql.mikr.us:3306/db_t289
     username: t289
-    password: B851_161775
+    password: 6139_b1373c
     dbcp2:
       test-on-borrow: true
       validation-query: SELECT 1
