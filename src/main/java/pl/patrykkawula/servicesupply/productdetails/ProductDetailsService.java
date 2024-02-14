@@ -1,6 +1,8 @@
 package pl.patrykkawula.servicesupply.productdetails;
 
 import org.springframework.stereotype.Service;
+import pl.patrykkawula.servicesupply.brand.Brand;
+import pl.patrykkawula.servicesupply.brand.BrandService;
 import pl.patrykkawula.servicesupply.exception.ProductDetailsNotFoundException;
 import pl.patrykkawula.servicesupply.picture.Picture;
 import pl.patrykkawula.servicesupply.picture.PictureRepository;
@@ -14,11 +16,13 @@ class ProductDetailsService {
     private final ProductDetailsRepository productDetailsRepository;
     private final ProductDetailsDtoMapper productDetailsDtoMapper;
     private final PictureRepository pictureRepository;
+    private final BrandService brandService;
 
-    ProductDetailsService(ProductDetailsRepository productDetailsRepository, ProductDetailsDtoMapper productDetailsDtoMapper, PictureRepository pictureRepository) {
+    ProductDetailsService(ProductDetailsRepository productDetailsRepository, ProductDetailsDtoMapper productDetailsDtoMapper, PictureRepository pictureRepository, BrandService brandService) {
         this.productDetailsRepository = productDetailsRepository;
         this.productDetailsDtoMapper = productDetailsDtoMapper;
         this.pictureRepository = pictureRepository;
+        this.brandService = brandService;
     }
 
     List<ProductDetailsDto> findAllProductsDetails() {
@@ -29,7 +33,8 @@ class ProductDetailsService {
     }
 
     void saveProductDetails(ProductDetailsSaveDto productDetailsSaveDto){
-        productDetailsRepository.save(productDetailsDtoMapper.map(productDetailsSaveDto));
+        Brand brand = brandService.findByName(productDetailsSaveDto.brand());
+        productDetailsRepository.save(productDetailsDtoMapper.map(productDetailsSaveDto, brand));
     }
 
     ProductDetailsSaveDto findProductDetailsById(Long id) {

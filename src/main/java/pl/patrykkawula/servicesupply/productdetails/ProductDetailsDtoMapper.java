@@ -8,10 +8,10 @@ import pl.patrykkawula.servicesupply.productdetails.dtos.ProductDetailsSaveDto;
 
 @Service
 class ProductDetailsDtoMapper {
-    private final BrandService brandService;
-    ProductDetailsDtoMapper(BrandService brandService) {
-        this.brandService = brandService;
-    }
+//    private final BrandService brandService;
+//    ProductDetailsDtoMapper(BrandService brandService) {
+//        this.brandService = brandService;
+//    }
 
     ProductDetailsDto mapToProductDetailsDto(ProductDetails productDetails) {
         Long id = productDetails.getId();
@@ -20,10 +20,10 @@ class ProductDetailsDtoMapper {
         return new ProductDetailsDto(id, brand, name);
     }
 
-    ProductDetails map(ProductDetailsSaveDto productDetailsSaveDto) {
+    ProductDetails map(ProductDetailsSaveDto productDetailsSaveDto, Brand brand) {
         return ProductDetails.builder()
                 .id(productDetailsSaveDto.id())
-                .brand(findByName(productDetailsSaveDto.brand()))
+                .brand(brand)
                 .name(productDetailsSaveDto.name())
                 .link(productDetailsSaveDto.link())
                 .safetyData(productDetailsSaveDto.safetyData())
@@ -31,10 +31,6 @@ class ProductDetailsDtoMapper {
                 .code(productDetailsSaveDto.code())
                 .build();
     }
-
-    //todo
-    //zmienić brand na dto
-
 
     ProductDetailsSaveDto mapToProductDetailsSaveDto(ProductDetails productDetails) {
         return ProductDetailsSaveDto.builder()
@@ -46,9 +42,5 @@ class ProductDetailsDtoMapper {
                 .gama(productDetails.getGama())
                 .code(productDetails.getCode())
                 .build();
-    }
-
-    private Brand findByName(String name) {
-        return brandService.findByName(name);
     }
 }
