@@ -28,7 +28,7 @@ class ProductDetailsController {
     String findAllProductsDetails(Model model) {
         List<ProductDetailsDto> productDetailsList = productDetailsService.findAllProductsDetails();
         model.addAttribute("productDetailsList", productDetailsList);
-        return "/productDetails/product_details";
+        return "/product_details";
     }
 
     @GetMapping("/showNewProductForm")
