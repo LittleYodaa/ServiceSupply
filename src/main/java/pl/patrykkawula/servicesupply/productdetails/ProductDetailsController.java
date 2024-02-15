@@ -83,7 +83,7 @@ class ProductDetailsController {
     @GetMapping("/getProductInfo/{id}")
     public String getProductInfo(@PathVariable(value = "id") Long id, Model model) {
         ProductDetailsSaveDto productDetailsSaveDto = productDetailsService.findProductDetailsById(id);
-        Picture productPicture = productDetailsService.productImage(productDetailsSaveDto.brand());
+        Picture productPicture = productDetailsService.findProductImage(productDetailsSaveDto.brand());
         model.addAttribute("productDetailsSaveDto", productDetailsSaveDto);
         model.addAttribute("productPicture", productPicture);
         return "product_details_info";

@@ -47,7 +47,7 @@ class ProductDetailsService {
         productDetailsRepository.deleteById(id);
     }
 
-    Picture productImage(String brand) {
+    Picture findProductImage(String brand) {
         return pictureRepository.findImageByName(brand);
     }
 }
