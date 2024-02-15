@@ -2,7 +2,6 @@ package pl.patrykkawula.servicesupply.employee.dtos;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.Builder;
 
@@ -12,7 +11,6 @@ public record EmployeeSaveDto(
         String firstName,
         @Size(min = 2, message = "Nazwisko musi mieć minimum 2 litery")
         String lastName,
-        @NotNull
         @NotBlank(message = "Wprowadź adres email")
         @Email(message = "Nieprawidłowy format email")
         String email,
@@ -22,12 +20,9 @@ public record EmployeeSaveDto(
         //todo
         //spróbować wykorzystać wzorzec pattern
 
-
-        @NotNull
         @NotBlank(message = "Wybierz jednostkę pracownika")
         String storeName,
 
-        @NotNull
         @NotBlank(message = "Wybierz rolę pracownika")
         String roleName) {
 }

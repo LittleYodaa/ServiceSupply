@@ -1,7 +1,7 @@
-package pl.patrykkawula.servicesupply.brand.dtos;
+package pl.patrykkawula.servicesupply.brand;
 
 import org.springframework.stereotype.Service;
-import pl.patrykkawula.servicesupply.brand.Brand;
+import pl.patrykkawula.servicesupply.brand.dtos.BrandNameDto;
 
 @Service
 public class BrandDtoMapper {

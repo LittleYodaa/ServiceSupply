@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import pl.patrykkawula.servicesupply.brand.BrandService;
 import pl.patrykkawula.servicesupply.brand.dtos.BrandNameDto;
 import pl.patrykkawula.servicesupply.picture.Picture;
+import pl.patrykkawula.servicesupply.picture.PictureService;
 import pl.patrykkawula.servicesupply.productdetails.dtos.ProductDetailsDto;
 import pl.patrykkawula.servicesupply.productdetails.dtos.ProductDetailsSaveDto;
 
@@ -18,10 +19,12 @@ import java.util.List;
 class ProductDetailsController {
     private final ProductDetailsService productDetailsService;
     private final BrandService brandService;
+    private final PictureService pictureService;
 
-    ProductDetailsController(ProductDetailsService productDetailsService, BrandService brandService) {
+    ProductDetailsController(ProductDetailsService productDetailsService, BrandService brandService, PictureService pictureService) {
         this.productDetailsService = productDetailsService;
         this.brandService = brandService;
+        this.pictureService = pictureService;
     }
 
     @GetMapping()
@@ -83,7 +86,7 @@ class ProductDetailsController {
     @GetMapping("/getProductInfo/{id}")
     public String getProductInfo(@PathVariable(value = "id") Long id, Model model) {
         ProductDetailsSaveDto productDetailsSaveDto = productDetailsService.findProductDetailsById(id);
-        Picture productPicture = productDetailsService.findProductImage(productDetailsSaveDto.brand());
+        Picture productPicture = pictureService.findProductImage(productDetailsSaveDto.brand());
         model.addAttribute("productDetailsSaveDto", productDetailsSaveDto);
         model.addAttribute("productPicture", productPicture);
         return "product_details_info";

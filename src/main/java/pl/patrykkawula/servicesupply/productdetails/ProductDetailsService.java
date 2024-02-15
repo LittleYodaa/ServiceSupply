@@ -4,8 +4,6 @@ import org.springframework.stereotype.Service;
 import pl.patrykkawula.servicesupply.brand.Brand;
 import pl.patrykkawula.servicesupply.brand.BrandService;
 import pl.patrykkawula.servicesupply.exception.ProductDetailsNotFoundException;
-import pl.patrykkawula.servicesupply.picture.Picture;
-import pl.patrykkawula.servicesupply.picture.PictureRepository;
 import pl.patrykkawula.servicesupply.productdetails.dtos.ProductDetailsDto;
 import pl.patrykkawula.servicesupply.productdetails.dtos.ProductDetailsSaveDto;
 
@@ -15,13 +13,11 @@ import java.util.List;
 class ProductDetailsService {
     private final ProductDetailsRepository productDetailsRepository;
     private final ProductDetailsDtoMapper productDetailsDtoMapper;
-    private final PictureRepository pictureRepository;
     private final BrandService brandService;
 
-    ProductDetailsService(ProductDetailsRepository productDetailsRepository, ProductDetailsDtoMapper productDetailsDtoMapper, PictureRepository pictureRepository, BrandService brandService) {
+    ProductDetailsService(ProductDetailsRepository productDetailsRepository, ProductDetailsDtoMapper productDetailsDtoMapper, BrandService brandService) {
         this.productDetailsRepository = productDetailsRepository;
         this.productDetailsDtoMapper = productDetailsDtoMapper;
-        this.pictureRepository = pictureRepository;
         this.brandService = brandService;
     }
 
@@ -31,6 +27,8 @@ class ProductDetailsService {
                 .map(productDetailsDtoMapper::mapToProductDetailsDto)
                 .toList();
     }
+    //FIXME ogólnie te findAll() będą musiały poznikać w więszkosci później. Teraz jak masz 10 rekordów to spoko, ale jak zrobi sie 100 to może byc nieczytelne na froncie. ale to pozniej mozna zrobic
+    //FIXME będzie robiona paginacja, narazie zostawiam
 
     void saveProductDetails(ProductDetailsSaveDto productDetailsSaveDto){
         Brand brand = brandService.findByName(productDetailsSaveDto.brand());
@@ -45,9 +43,5 @@ class ProductDetailsService {
 
     void deleteProductDetailsById(Long id) {
         productDetailsRepository.deleteById(id);
-    }
-
-    Picture findProductImage(String brand) {
-        return pictureRepository.findImageByName(brand);
     }
 }

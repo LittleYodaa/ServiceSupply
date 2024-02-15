@@ -1,7 +1,6 @@
 package pl.patrykkawula.servicesupply.brand;
 
 import org.springframework.stereotype.Service;
-import pl.patrykkawula.servicesupply.brand.dtos.BrandDtoMapper;
 import pl.patrykkawula.servicesupply.brand.dtos.BrandNameDto;
 import pl.patrykkawula.servicesupply.exception.BrandNotFoundException;
 
