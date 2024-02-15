@@ -91,4 +91,6 @@ class ProductDetailsController {
         model.addAttribute("productPicture", productPicture);
         return "product_details_info";
     }
+
+    //FIXME dto zamiast encji czy zostawić jak jest
 }

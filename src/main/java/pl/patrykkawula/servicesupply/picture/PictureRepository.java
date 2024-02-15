@@ -3,7 +3,6 @@ package pl.patrykkawula.servicesupply.picture;
 import org.springframework.stereotype.Repository;
 import pl.patrykkawula.servicesupply.exception.PictureNotFoundException;
 
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -21,11 +20,11 @@ public class PictureRepository {
         Picture fourSerwis = new Picture("4SERWIS", "4serwis.png");
         Picture btwin = new Picture("BTWIN", "btwin.png");
         Picture externalDistribution = new Picture("DYSTRYBUCJA ZEWNĘTRZNA", "external_distribution.png");
-        pictures.put(wintersteiger.getName(), wintersteiger);
-        pictures.put(berner.getName(), berner);
-        pictures.put(fourSerwis.getName(), fourSerwis);
-        pictures.put(btwin.getName(), btwin);
-        pictures.put(externalDistribution.getName(), externalDistribution);
+        pictures.put(wintersteiger.name(), wintersteiger);
+        pictures.put(berner.name(), berner);
+        pictures.put(fourSerwis.name(), fourSerwis);
+        pictures.put(btwin.name(), btwin);
+        pictures.put(externalDistribution.name(), externalDistribution);
     }
 
     public Picture findImageByName(String name) {
