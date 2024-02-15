@@ -1,8 +1,9 @@
-package pl.patrykkawula.servicesupply;
+package pl.patrykkawula.servicesupply.order;
 
 import jakarta.persistence.*;
 import lombok.*;
 import pl.patrykkawula.servicesupply.employee.Employee;
+import pl.patrykkawula.servicesupply.orderproduct.OrderProduct;
 import pl.patrykkawula.servicesupply.store.Store;
 
 import java.time.LocalDate;

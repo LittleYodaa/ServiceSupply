@@ -1,7 +1,8 @@
-package pl.patrykkawula.servicesupply;
+package pl.patrykkawula.servicesupply.cartproduct;
 
 import jakarta.persistence.*;
 import lombok.*;
+import pl.patrykkawula.servicesupply.cart.Cart;
 import pl.patrykkawula.servicesupply.productdetails.ProductDetails;
 
 @Entity
@@ -10,7 +11,7 @@ import pl.patrykkawula.servicesupply.productdetails.ProductDetails;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-class CartProduct {
+public class CartProduct {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

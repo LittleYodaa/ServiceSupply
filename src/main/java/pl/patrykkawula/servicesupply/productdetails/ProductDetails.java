@@ -1,12 +1,10 @@
 package pl.patrykkawula.servicesupply.productdetails;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
 import lombok.*;
 import pl.patrykkawula.servicesupply.brand.Brand;
-import pl.patrykkawula.servicesupply.OrderProduct;
-import pl.patrykkawula.servicesupply.StoreProduct;
+import pl.patrykkawula.servicesupply.orderproduct.OrderProduct;
+import pl.patrykkawula.servicesupply.storeproduct.StoreProduct;
 
 import java.util.List;
 

@@ -2,8 +2,8 @@ package pl.patrykkawula.servicesupply.employee;
 
 import jakarta.persistence.*;
 import lombok.*;
-import pl.patrykkawula.servicesupply.Cart;
-import pl.patrykkawula.servicesupply.Order;
+import pl.patrykkawula.servicesupply.cart.Cart;
+import pl.patrykkawula.servicesupply.order.Order;
 import pl.patrykkawula.servicesupply.employee.employeeRole.EmployeeRole;
 import pl.patrykkawula.servicesupply.store.Store;
 

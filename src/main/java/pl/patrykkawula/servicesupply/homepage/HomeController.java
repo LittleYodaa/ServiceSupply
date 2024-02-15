@@ -1,4 +1,4 @@
-package pl.patrykkawula.servicesupply;
+package pl.patrykkawula.servicesupply.homepage;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,7 +8,7 @@ class HomeController {
 
     @GetMapping("/")
     String home() {
-        return "index.html";
+        return "index";
     }
 
     @GetMapping("/workInProgress")

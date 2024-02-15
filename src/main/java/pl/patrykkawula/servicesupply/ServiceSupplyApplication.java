@@ -6,8 +6,6 @@ import org.springframework.context.annotation.Bean;
 import org.thymeleaf.templatemode.TemplateMode;
 import org.thymeleaf.templateresolver.ClassLoaderTemplateResolver;
 
-import java.util.Locale;
-
 @SpringBootApplication
 public class ServiceSupplyApplication {
 

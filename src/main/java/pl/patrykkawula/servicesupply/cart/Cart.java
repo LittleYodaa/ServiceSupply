@@ -1,7 +1,8 @@
-package pl.patrykkawula.servicesupply;
+package pl.patrykkawula.servicesupply.cart; // FIXME dodać pakiet
 
 import jakarta.persistence.*;
 import lombok.*;
+import pl.patrykkawula.servicesupply.cartproduct.CartProduct;
 import pl.patrykkawula.servicesupply.employee.Employee;
 
 import java.util.List;
