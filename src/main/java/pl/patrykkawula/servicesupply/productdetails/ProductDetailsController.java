@@ -27,6 +27,7 @@ class ProductDetailsController {
         this.pictureService = pictureService;
     }
 
+
     @GetMapping()
     String findAllProductsDetails(Model model) {
         List<ProductDetailsDto> productDetailsList = productDetailsService.findAllProductsDetails();
@@ -58,7 +59,7 @@ class ProductDetailsController {
         }
     }
 
-    @GetMapping("/showFormForUpdate/{id}")
+    @GetMapping("/{id}/showFormForUpdate")
     public String showFormForUpdate(@PathVariable(value = "id") Long id, Model model) {
         ProductDetailsSaveDto productDetailsSaveDto = productDetailsService.findProductDetailsById(id);
         model.addAttribute("productDetailsSaveDto", productDetailsSaveDto);
@@ -77,13 +78,18 @@ class ProductDetailsController {
         }
     }
 
-    @GetMapping("/deleteProductDetails/{id}")
+    // FIXME w thymeleafie nie ma DELETE?
+    // FIXME nie ma ani put ani delete
+    // FIXME odpowiedź ze stacka:
+    //Thymeleaf is an HTML template engine. HTML does not support put or delete HTTP methods for its method attribute.
+    @GetMapping("/{id}/deleteProductDetails")
     public String deleteProduct(@PathVariable(value = "id") Long id) {
         productDetailsService.deleteProductDetailsById(id);
         return "redirect:/productDetails";
     }
 
-    @GetMapping("/getProductInfo/{id}")
+
+    @GetMapping("/{id}/getProductInfo")
     public String getProductInfo(@PathVariable(value = "id") Long id, Model model) {
         ProductDetailsSaveDto productDetailsSaveDto = productDetailsService.findProductDetailsById(id);
         Picture productPicture = pictureService.findProductImage(productDetailsSaveDto.brand());

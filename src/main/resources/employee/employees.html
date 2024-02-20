@@ -34,7 +34,7 @@
       <td th:text="${employee.storeId()}"></td>
       <td><a th:href="@{/static}" class="btn btn-primary">Edytuj</a>
       </td>
-      <td><a th:href="@{/employees/deleteEmployee/{id}(id=${employee.id()})}" class="btn btn-danger">Usuń</a>
+      <td><a th:href="@{/employees/{id}/delete (id=${employee.id()})}" class="btn btn-danger">Usuń</a>
       </td>
     </tr>
     </tbody>

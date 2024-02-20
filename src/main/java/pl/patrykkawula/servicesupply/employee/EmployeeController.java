@@ -27,7 +27,7 @@ class EmployeeController {
         this.storeService = storeService;
     }
 
-    @GetMapping("")
+    @GetMapping()
     String findAllEmployees(Model model) {
         List<EmployeeViewDto> employeeList = employeeService.findAllEmployees();
         model.addAttribute("employeeList", employeeList);
@@ -45,7 +45,7 @@ class EmployeeController {
         return "new_employee";
     }
 
-    @PostMapping("/addEmployee")
+    @PostMapping()
     String saveEmplyee(@Valid @ModelAttribute("employeeSaveDto") EmployeeSaveDto employeeSaveDto, BindingResult bindingResult, Model model) {
         if (bindingResult.hasErrors()) {
             List<StoreDto> allStores = storeService.getAllStores();
@@ -59,10 +59,9 @@ class EmployeeController {
         }
     }
 
-    @GetMapping("/deleteEmployee/{id}")
+    @GetMapping("/{id}/delete")
     String deleteEmployeeById(@PathVariable (value = "id") Long id) {
         employeeService.deleteEmployeeById(id);
         return "redirect:/employees";
     }
-
 }

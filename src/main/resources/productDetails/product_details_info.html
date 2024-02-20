@@ -10,7 +10,7 @@
 <body>
 
 <div th:object="${productDetailsSaveDto}" class="card mx-auto" style="width: 22rem;">
-  <img class="card-img-top" th:src="@{|/images/${productPicture.getFileName()}|}" alt="Card image cap">
+  <img class="card-img-top" th:src="@{|/images/${productPicture.fileName()}|}" alt="Card image cap">
   <div class="card-body">
     <h5 th:text="*{brand()}" class="card-title">Card title</h5>
     <h5 th:text="*{name().toUpperCase()}" class="card-title">Card title</h5>

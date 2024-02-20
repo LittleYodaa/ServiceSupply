@@ -31,11 +31,11 @@
         <tr th:each="product : ${productDetailsList}">
             <td th:text="${product.brand()}"></td>
             <td th:text="${product.name().toUpperCase()}"></td>
-            <td><a th:href="@{/productDetails/getProductInfo/{id}(id=${product.id()})}" class="btn btn-primary">Info</a>
+            <td><a th:href="@{/productDetails/{id}/getProductInfo (id=${product.id()})}" class="btn btn-primary">Info</a>
             </td>
-            <td><a th:href="@{/productDetails/showFormForUpdate/{id}(id=${product.id()})}" class="btn btn-primary">Edytuj</a>
+            <td><a th:href="@{/productDetails/{id}/showFormForUpdate (id=${product.id()})}" class="btn btn-primary">Edytuj</a>
             </td>
-            <td><a th:href="@{/productDetails/deleteProductDetails/{id}(id=${product.id()})}" class="btn btn-danger">Usuń</a>
+            <td><a th:href="@{/productDetails/{id}/deleteProductDetails (id=${product.id()})}" class="btn btn-danger">Usuń</a>
             </td>
         </tr>
         </tbody>
