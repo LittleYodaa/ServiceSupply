@@ -2,6 +2,7 @@ package pl.patrykkawula.servicesupply.employee.employeeRole;
 
 import org.springframework.stereotype.Service;
 import pl.patrykkawula.servicesupply.employee.employeeRole.dtos.EmployeeRoleDto;
+import pl.patrykkawula.servicesupply.exception.EmployeeRoleNotFoundException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,15 +17,15 @@ public class EmployeeRoleService {
         this.employeeRoleDtoMapper = employeeRoleDtoMapper;
     }
 
-    public List<EmployeeRole> findByName(String name) {
-        List<EmployeeRole> employeeRoleList = new ArrayList<>();
-        employeeRoleList.add(employeeRoleRepository.findByNameIgnoreCase(name)
-                .orElseThrow());
+    public List<EmployeeRoleDto> findByName(String name) {
+        List<EmployeeRoleDto> employeeRoleList = new ArrayList<>();
+        employeeRoleList.add(employeeRoleRepository
+                .findByNameIgnoreCase(name)
+                .map(employeeRoleDtoMapper::mapToEmployeeRoleNameDto)
+                .orElseThrow(() -> new EmployeeRoleNotFoundException(name))
+        );
         return employeeRoleList;
     }
-
-    //todo
-    //wyjątek do stworzenia
 
     public List<EmployeeRoleDto> getAllEmployeeRoleDto() {
         return employeeRoleRepository.findAll()
@@ -33,13 +34,18 @@ public class EmployeeRoleService {
                 .toList();
     }
 
-    public List<EmployeeRole> getAllEmployeeRole() {
-        return employeeRoleRepository.findAll();
+    public List<EmployeeRoleDto> getAllEmployeeRole() {
+        return employeeRoleRepository.findAll()
+                .stream()
+                .map(employeeRoleDtoMapper::mapToEmployeeRoleNameDto)
+                .toList();
     }
 
-    //todo
-    //tu tak samo jak w store, metoda getAllEmployeeRoleDto wystawia listę ról na widok z kolei ta druga zwraca już encję do
-    //mappera klasy Employye, pogubiłem się trochę z tymi dtosami przy widoku....
-
+    public List<EmployeeRoleDto> getRolesByRoleName(String roleName) {
+        if (roleName.equalsIgnoreCase("ADMIN")) {
+            return getAllEmployeeRole();
+        }
+        return findByName(roleName);
+    }
 
 }

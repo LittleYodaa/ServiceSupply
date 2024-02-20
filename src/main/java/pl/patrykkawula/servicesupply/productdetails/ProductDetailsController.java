@@ -15,7 +15,7 @@ import pl.patrykkawula.servicesupply.productdetails.dtos.ProductDetailsSaveDto;
 import java.util.List;
 
 @Controller
-@RequestMapping(("/productDetails"))
+@RequestMapping("/productDetails")
 class ProductDetailsController {
     private final ProductDetailsService productDetailsService;
     private final BrandService brandService;
@@ -28,7 +28,7 @@ class ProductDetailsController {
     }
 
 
-    @GetMapping()
+    @GetMapping
     String findAllProductsDetails(Model model) {
         List<ProductDetailsDto> productDetailsList = productDetailsService.findAllProductsDetails();
         model.addAttribute("productDetailsList", productDetailsList);
@@ -44,7 +44,7 @@ class ProductDetailsController {
         return "new_product_details";
     }
 
-    @PostMapping("/saveProductDetails")
+    @PostMapping
     public String saveProduct(@Valid @ModelAttribute("productDetailsSaveDto") ProductDetailsSaveDto productDetailsSaveDto,
                               BindingResult bindingResult, Model model) {
         if (bindingResult.hasErrors()) {

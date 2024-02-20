@@ -12,7 +12,7 @@
 <div class="container">
     <h1>Dodaj produkt</h1>
     <hr>
-    <form th:action="@{/productDetails/saveProductDetails}" th:object="${productDetailsSaveDto}" method="POST">
+    <form th:action="@{/productDetails}" th:object="${productDetailsSaveDto}" method="POST">
 
 
         <select id="brand" name="brand" th:with="brand=*{brand}" class="form-control mb-4 col-4">

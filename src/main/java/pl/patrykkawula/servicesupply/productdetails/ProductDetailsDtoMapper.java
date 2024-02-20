@@ -8,10 +8,6 @@ import pl.patrykkawula.servicesupply.productdetails.dtos.ProductDetailsSaveDto;
 
 @Service
 class ProductDetailsDtoMapper {
-//    private final BrandService brandService;
-//    ProductDetailsDtoMapper(BrandService brandService) {
-//        this.brandService = brandService;
-//    }
 
     ProductDetailsDto mapToProductDetailsDto(ProductDetails productDetails) {
         Long id = productDetails.getId();

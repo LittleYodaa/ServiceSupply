@@ -16,6 +16,9 @@ public class BrandService {
         this.brandDtoMapper = brandDtoMapper;
     }
 
+    // FIXME encje nie powinny być udostępniane poza seris
+    // no i tu się zastanawiam, ta encja nie wychodzi poza warstwę serwisów bo idzie tylko do ProductDetailsService,
+    // trzeba w tym przypadku wysyłać tam obiekt dto i już po stronie productDetails mapować go do encji?
     public Brand findByName(String name) {
         return brandRepository.findByName(name).orElseThrow(() -> new BrandNotFoundException(name));
     }

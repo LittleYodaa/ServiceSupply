@@ -28,7 +28,7 @@ class ProductDetailsService {
                 .toList();
     }
     //FIXME ogólnie te findAll() będą musiały poznikać w więszkosci później. Teraz jak masz 10 rekordów to spoko, ale jak zrobi sie 100 to może byc nieczytelne na froncie. ale to pozniej mozna zrobic
-    //FIXME będzie robiona paginacja, narazie zostawiam
+    //będzie robiona paginacja, narazie zostawiam
 
     void saveProductDetails(ProductDetailsSaveDto productDetailsSaveDto){
         Brand brand = brandService.findByName(productDetailsSaveDto.brand());

@@ -4,10 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import pl.patrykkawula.servicesupply.order.Order;
 import pl.patrykkawula.servicesupply.storeproduct.StoreProduct;
 import pl.patrykkawula.servicesupply.employee.Employee;
@@ -15,6 +12,7 @@ import pl.patrykkawula.servicesupply.employee.Employee;
 import java.util.List;
 
 @Entity
+@Builder
 @Setter
 @Getter
 @NoArgsConstructor

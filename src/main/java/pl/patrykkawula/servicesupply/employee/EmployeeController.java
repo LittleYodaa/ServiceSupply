@@ -46,7 +46,7 @@ class EmployeeController {
     }
 
     @PostMapping()
-    String saveEmplyee(@Valid @ModelAttribute("employeeSaveDto") EmployeeSaveDto employeeSaveDto, BindingResult bindingResult, Model model) {
+    String saveEmployee(@Valid @ModelAttribute("employeeSaveDto") EmployeeSaveDto employeeSaveDto, BindingResult bindingResult, Model model) {
         if (bindingResult.hasErrors()) {
             List<StoreDto> allStores = storeService.getAllStores();
             List<EmployeeRoleDto> allEmployeeRoleDto = employeeRoleService.getAllEmployeeRoleDto();

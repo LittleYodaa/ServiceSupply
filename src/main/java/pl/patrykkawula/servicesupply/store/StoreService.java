@@ -16,12 +16,10 @@ public class StoreService {
         this.storeDtoMapper = storeDtoMapper;
     }
 
-    public Store findStoreByName(String name) {
-        return storeRepository.findByName(name).orElseThrow(() -> new StoreNotFoundException(name));
-    }
-
-    public Store findStoreById(Long id) {
-        return storeRepository.findById(id).orElseThrow(() -> new StoreNotFoundException(id));
+    public StoreDto findStoreByName(String name) {
+        return storeRepository.findByName(name)
+                .map(storeDtoMapper::mapToStoreDto)
+                .orElseThrow(() -> new StoreNotFoundException(name));
     }
 
     public List<StoreDto> getAllStores() {
@@ -30,8 +28,4 @@ public class StoreService {
                 .map(storeDtoMapper::mapToStoreDto)
                 .toList();
     }
-
-    //todo
-    //przykładowo getAllStores zwraca listę dto bo to idzie do widoku ale reszta metod zwraca encję, bo idę do tworzenia
-    //obiektów i nie wychodzą na widok, może tak być?
 }

@@ -12,9 +12,10 @@ public class PictureRepository {
 
     PictureRepository() {
         //FIXME to by chyba można automatycznie żeby wczytało wszystkie pliki z danego katalogu
-        //FIXME można coś takiego zrobić ale robi się problem w przechowywaniu w mapie, a to jest wygodne
-        //FIXME myślałem, żeby jakoś wyodrębniać z nazwy pliku nazwe dostawcy ale nie ma gwarancji, że ktoś tak samo by zapisywał pliki po nazwach
-        //FIXME ostatecznie zostawiłem jak jest tylko obsłużyłem błąd
+        //można coś takiego zrobić ale robi się problem w przechowywaniu w mapie, a to jest wygodne
+        //myślałem, żeby jakoś wyodrębniać z nazwy pliku nazwe dostawcy ale nie ma gwarancji, że ktoś tak samo by zapisywał pliki po nazwach
+        //ostatecznie zostawiłem jak jest tylko obsłużyłem błąd
+
         Picture wintersteiger = new Picture("WINTERSTEIGER", "wintersteiger.png");
         Picture berner = new Picture("BERNER", "berner.png");
         Picture fourSerwis = new Picture("4SERWIS", "4serwis.png");

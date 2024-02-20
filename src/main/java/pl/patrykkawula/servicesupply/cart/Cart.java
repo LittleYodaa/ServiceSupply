@@ -1,4 +1,4 @@
-package pl.patrykkawula.servicesupply.cart; // FIXME dodać pakiet
+package pl.patrykkawula.servicesupply.cart;
 
 import jakarta.persistence.*;
 import lombok.*;
