@@ -18,8 +18,8 @@ public class StoreProduct {
     @ManyToOne
     @JoinColumn(name = "store_id")
     private Store store;
-    @ManyToOne
-    @JoinColumn(name = "product_details_id")
+    @OneToOne
+    @JoinColumn(name = "product_details_id", referencedColumnName = "id")
     private ProductDetails productDetails;
     private Long productQuantity;
 }

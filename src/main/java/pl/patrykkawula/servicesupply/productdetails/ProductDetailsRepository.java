@@ -2,6 +2,8 @@ package pl.patrykkawula.servicesupply.productdetails;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-interface ProductDetailsRepository extends JpaRepository<ProductDetails, Long> {
+import java.util.Optional;
 
+public interface ProductDetailsRepository extends JpaRepository<ProductDetails, Long> {
+    Optional<ProductDetails> findByName(String name);
 }

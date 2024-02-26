@@ -28,4 +28,10 @@ public class StoreService {
                 .map(storeDtoMapper::mapToStoreDto)
                 .toList();
     }
+
+    public StoreDto findStoreById(Long id) {
+        return storeRepository.findById(id)
+                .map(storeDtoMapper::mapToStoreDto)
+                .orElseThrow(() -> new StoreNotFoundException(id));
+    }
 }

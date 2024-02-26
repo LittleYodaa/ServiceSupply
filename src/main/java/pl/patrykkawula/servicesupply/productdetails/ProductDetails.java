@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import lombok.*;
 import pl.patrykkawula.servicesupply.brand.Brand;
 import pl.patrykkawula.servicesupply.orderproduct.OrderProduct;
-import pl.patrykkawula.servicesupply.storeproduct.StoreProduct;
 
 import java.util.List;
 
@@ -23,8 +22,8 @@ public class ProductDetails {
     private String gama;
     private String safetyData;
     private String code;
-    @OneToMany(mappedBy = "productDetails")
-    private List<StoreProduct> storeProducts;
+//    @OneToOne(mappedBy = "productDetails", cascade = CascadeType.ALL)
+//    private StoreProduct storeProduct;
     @OneToMany(mappedBy = "productDetails")
     private List<OrderProduct> orderProducts;
     @ManyToOne

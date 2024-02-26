@@ -48,4 +48,16 @@ public class ServiceSupplyApplication {
 		productDetailsTemplateResolver.setCheckExistence(true);
 		return productDetailsTemplateResolver;
 	}
+
+	@Bean
+	public ClassLoaderTemplateResolver storeProductsTemplateResolver() {
+		ClassLoaderTemplateResolver productDetailsTemplateResolver = new ClassLoaderTemplateResolver();
+		productDetailsTemplateResolver.setPrefix("storeProducts/");
+		productDetailsTemplateResolver.setSuffix(".html");
+		productDetailsTemplateResolver.setTemplateMode(TemplateMode.HTML);
+		productDetailsTemplateResolver.setCharacterEncoding("UTF-8");
+		productDetailsTemplateResolver.setOrder(1);
+		productDetailsTemplateResolver.setCheckExistence(true);
+		return productDetailsTemplateResolver;
+	}
 }

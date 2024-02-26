@@ -79,8 +79,8 @@ class ProductDetailsController {
     }
 
     // FIXME w thymeleafie nie ma DELETE?
-    // FIXME nie ma ani put ani delete
-    // FIXME odpowiedź ze stacka:
+    //nie ma ani put ani delete
+    //odpowiedź ze stacka:
     //Thymeleaf is an HTML template engine. HTML does not support put or delete HTTP methods for its method attribute.
     @GetMapping("/{id}/deleteProductDetails")
     public String deleteProduct(@PathVariable(value = "id") Long id) {
@@ -98,5 +98,5 @@ class ProductDetailsController {
         return "product_details_info";
     }
 
-    //FIXME dto zamiast encji czy zostawić jak jest
+    // FIXME dto zamiast encji
 }

@@ -10,7 +10,7 @@ import pl.patrykkawula.servicesupply.productdetails.dtos.ProductDetailsSaveDto;
 import java.util.List;
 
 @Service
-class ProductDetailsService {
+public class ProductDetailsService {
     private final ProductDetailsRepository productDetailsRepository;
     private final ProductDetailsDtoMapper productDetailsDtoMapper;
     private final BrandService brandService;
@@ -21,7 +21,7 @@ class ProductDetailsService {
         this.brandService = brandService;
     }
 
-    List<ProductDetailsDto> findAllProductsDetails() {
+    public List<ProductDetailsDto> findAllProductsDetails() {
         return productDetailsRepository.findAll()
                 .stream()
                 .map(productDetailsDtoMapper::mapToProductDetailsDto)
@@ -35,7 +35,7 @@ class ProductDetailsService {
         productDetailsRepository.save(productDetailsDtoMapper.map(productDetailsSaveDto, brand));
     }
 
-    ProductDetailsSaveDto findProductDetailsById(Long id) {
+    public ProductDetailsSaveDto findProductDetailsById(Long id) {
        return productDetailsRepository.findById(id).
                map(productDetailsDtoMapper::mapToProductDetailsSaveDto).
                orElseThrow(() -> new ProductDetailsNotFoundException(id));
@@ -43,5 +43,11 @@ class ProductDetailsService {
 
     void deleteProductDetailsById(Long id) {
         productDetailsRepository.deleteById(id);
+    }
+
+    public ProductDetailsSaveDto findProductDetailsByName(String name) {
+        ProductDetails productDetails = productDetailsRepository.findByName(name)
+                .orElseThrow(() -> new ProductDetailsNotFoundException(name));
+        return productDetailsDtoMapper.mapToProductDetailsSaveDto(productDetails);
     }
 }

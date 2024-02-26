@@ -2,12 +2,11 @@ package pl.patrykkawula.servicesupply.productdetails;
 
 import org.springframework.stereotype.Service;
 import pl.patrykkawula.servicesupply.brand.Brand;
-import pl.patrykkawula.servicesupply.brand.BrandService;
 import pl.patrykkawula.servicesupply.productdetails.dtos.ProductDetailsDto;
 import pl.patrykkawula.servicesupply.productdetails.dtos.ProductDetailsSaveDto;
 
 @Service
-class ProductDetailsDtoMapper {
+public class ProductDetailsDtoMapper {
 
     ProductDetailsDto mapToProductDetailsDto(ProductDetails productDetails) {
         Long id = productDetails.getId();
@@ -16,7 +15,7 @@ class ProductDetailsDtoMapper {
         return new ProductDetailsDto(id, brand, name);
     }
 
-    ProductDetails map(ProductDetailsSaveDto productDetailsSaveDto, Brand brand) {
+    public ProductDetails map(ProductDetailsSaveDto productDetailsSaveDto, Brand brand) {
         return ProductDetails.builder()
                 .id(productDetailsSaveDto.id())
                 .brand(brand)

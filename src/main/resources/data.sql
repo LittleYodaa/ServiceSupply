@@ -13,7 +13,6 @@ VALUES
     (729, 'RUMIA'),
     (686, 'GDAŃSK KARTUSKA');
 
-
 INSERT INTO product_details
     (id, name, link, safety_data, brand_id, gama, code)
 VALUES

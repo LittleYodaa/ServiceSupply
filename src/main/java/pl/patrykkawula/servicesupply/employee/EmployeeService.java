@@ -10,13 +10,12 @@ import pl.patrykkawula.servicesupply.employee.employeeRole.EmployeeRoleService;
 import pl.patrykkawula.servicesupply.store.Store;
 import pl.patrykkawula.servicesupply.store.StoreDtoMapper;
 import pl.patrykkawula.servicesupply.store.StoreService;
-import pl.patrykkawula.servicesupply.store.dtos.StoreDto;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
-class EmployeeService {
+public class EmployeeService {
     private final EmployeeRepository employeeRepository;
     private final EmployeeDtoMapper employeeDtoMapper;
     private final EmployeeRoleService employeeRoleService;
@@ -58,4 +57,12 @@ class EmployeeService {
     void deleteEmployeeById(Long id) {
         employeeRepository.deleteById(id);
     }
+
+    public Long findStoreIdByEmployeeEmail(String email) {
+        return employeeRepository.findByEmail(email)
+                .map(employee -> employee.getStore().getId())
+                .orElseThrow();
+    }
+
+    //todo wyjątek do stworzenia
 }
