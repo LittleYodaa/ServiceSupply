@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 import pl.patrykkawula.servicesupply.brand.Brand;
 import pl.patrykkawula.servicesupply.orderproduct.OrderProduct;
+import pl.patrykkawula.servicesupply.storeproduct.StoreProduct;
 
 import java.util.List;
 
@@ -29,7 +30,8 @@ public class ProductDetails {
     @ManyToOne
     @JoinColumn(name = "brand_id")
     private Brand brand;
-
+    @OneToMany(mappedBy = "productDetails")
+    private List<StoreProduct> storeProducts;
     public String getBrandName() {
         return brand.getName();
     }
