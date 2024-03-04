@@ -7,11 +7,14 @@
           integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
           crossorigin="anonymous">
     <link rel="stylesheet" th:href="@{/css/style.css}">
+    <script src="https://kit.fontawesome.com/3b2a4d9597.js" crossorigin="anonymous"></script>
 </head>
 <body>
 <div>
     <nav class="navbar navbar-dark bg-light">
         <a class="btn btn-primary ms-auto me-md-2" type="button" th:href="@{/}">Strona główna</a>
+        <a th:href="@{/}" class="btn btn-primary px-3 py-1,5 d-block">
+            <i class="fa-solid fa-cart-shopping"></i> Twój koszyk </a></li>
     </nav>
 </div>
 <div class="container">
@@ -25,12 +28,17 @@
             <th></th>
             <th></th>
             <th></th>
+            <th></th>
         </tr>
         </thead>
         <tbody>
         <tr th:each="product : ${productDetailsList}">
             <td th:text="${product.brand()}"></td>
             <td th:text="${product.name().toUpperCase()}"></td>
+            <td><a th:href="@{cartProducts/{id}/addCartProduct (id=%{product.id()})}" class="btn btn-primary">
+                <i class="fa-solid fa-cart-shopping"></i>
+            </a>
+            </td>
             <td><a th:href="@{/productDetails/{id}/getProductInfo (id=${product.id()})}" class="btn btn-primary">Info</a>
             </td>
             <td><a th:href="@{/productDetails/{id}/showFormForUpdate (id=${product.id()})}" class="btn btn-primary">Edytuj</a>
