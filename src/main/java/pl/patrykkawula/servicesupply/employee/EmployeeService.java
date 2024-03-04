@@ -1,15 +1,20 @@
 package pl.patrykkawula.servicesupply.employee;
 
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 import pl.patrykkawula.servicesupply.employee.dtos.EmployeeCredentialsDto;
 import pl.patrykkawula.servicesupply.employee.dtos.EmployeeSaveDto;
+import pl.patrykkawula.servicesupply.employee.dtos.EmployeeStoreDto;
 import pl.patrykkawula.servicesupply.employee.dtos.EmployeeViewDto;
 import pl.patrykkawula.servicesupply.employee.employeeRole.EmployeeRole;
 import pl.patrykkawula.servicesupply.employee.employeeRole.EmployeeRoleDtoMapper;
 import pl.patrykkawula.servicesupply.employee.employeeRole.EmployeeRoleService;
+import pl.patrykkawula.servicesupply.exception.EmployeeNotFoundException;
 import pl.patrykkawula.servicesupply.store.Store;
 import pl.patrykkawula.servicesupply.store.StoreDtoMapper;
 import pl.patrykkawula.servicesupply.store.StoreService;
+import pl.patrykkawula.servicesupply.store.dtos.StoreDto;
 
 import java.util.List;
 import java.util.Optional;
@@ -64,5 +69,11 @@ public class EmployeeService {
                 .orElseThrow();
     }
 
-    //todo wyjątek do stworzenia
+    public EmployeeStoreDto getActualUserId() {
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        String email = ((UserDetails) principal).getUsername();
+        return employeeRepository.findByEmail(email)
+                .map(employeeDtoMapper::mapToEmployeeStoreDto)
+                .orElseThrow(() -> new EmployeeNotFoundException(email));
+    }
 }

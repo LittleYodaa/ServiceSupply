@@ -1,6 +1,9 @@
 package pl.patrykkawula.servicesupply.store;
 
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
+import pl.patrykkawula.servicesupply.employee.EmployeeService;
 import pl.patrykkawula.servicesupply.exception.StoreNotFoundException;
 import pl.patrykkawula.servicesupply.store.dtos.StoreDto;
 

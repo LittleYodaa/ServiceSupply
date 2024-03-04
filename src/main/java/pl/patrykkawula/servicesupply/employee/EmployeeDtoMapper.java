@@ -3,6 +3,7 @@ package pl.patrykkawula.servicesupply.employee;
 import org.springframework.stereotype.Service;
 import pl.patrykkawula.servicesupply.employee.dtos.EmployeeCredentialsDto;
 import pl.patrykkawula.servicesupply.employee.dtos.EmployeeSaveDto;
+import pl.patrykkawula.servicesupply.employee.dtos.EmployeeStoreDto;
 import pl.patrykkawula.servicesupply.employee.dtos.EmployeeViewDto;
 import pl.patrykkawula.servicesupply.employee.employeeRole.EmployeeRole;
 import pl.patrykkawula.servicesupply.employee.employeeRole.EmployeeRoleDtoMapper;
@@ -47,6 +48,13 @@ class EmployeeDtoMapper {
                 .password(employeeSaveDto.password())
                 .store(store)
                 .roles(roles)
+                .build();
+    }
+
+    EmployeeStoreDto mapToEmployeeStoreDto(Employee employee) {
+        return EmployeeStoreDto.builder()
+                .email(employee.getEmail())
+                .storeId(employee.getStore().getId())
                 .build();
     }
 }

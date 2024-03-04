@@ -7,6 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 import pl.patrykkawula.servicesupply.brand.Brand;
 import pl.patrykkawula.servicesupply.brand.BrandService;
 import pl.patrykkawula.servicesupply.employee.EmployeeService;
+import pl.patrykkawula.servicesupply.employee.dtos.EmployeeStoreDto;
 import pl.patrykkawula.servicesupply.productdetails.ProductDetails;
 import pl.patrykkawula.servicesupply.productdetails.ProductDetailsDtoMapper;
 import pl.patrykkawula.servicesupply.productdetails.ProductDetailsRepository;
@@ -15,6 +16,7 @@ import pl.patrykkawula.servicesupply.productdetails.dtos.ProductDetailsDto;
 import pl.patrykkawula.servicesupply.store.Store;
 import pl.patrykkawula.servicesupply.store.StoreDtoMapper;
 import pl.patrykkawula.servicesupply.store.StoreService;
+import pl.patrykkawula.servicesupply.store.dtos.StoreDto;
 import pl.patrykkawula.servicesupply.storeproduct.dtos.StoreProductViewDto;
 
 import java.util.List;
@@ -92,10 +94,8 @@ class StoreProductsService {
     }
 
     private Store getActualUsersStore() {
-        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        String email = ((UserDetails) principal).getUsername();
-        Long storeIdByEmployeeEmail = employeeService.findStoreIdByEmployeeEmail(email);
-        return storeDtoMapper.map(storeService.findStoreById(storeIdByEmployeeEmail));
+        EmployeeStoreDto employeeStoreDto = employeeService.getActualUserId();
+        return storeDtoMapper.map(storeService.findStoreById(employeeStoreDto.storeId()));
     }
 
     private ProductDetails getActualProductDetails(ProductDetailsDto productDetailsDto) {
