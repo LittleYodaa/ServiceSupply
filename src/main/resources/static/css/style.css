@@ -3,7 +3,7 @@ body {
 }
 
 #side_nav {
-    background: #000;
+    background: #fffafa;
     min-width: 300px;
     max-width: 300px;
 }
@@ -11,6 +11,9 @@ body {
 .content {
     min-height: 100vh;
     width: 100%;
+    background-size: cover;
+    background-image: url('../images/login_background.jpg');
+    background-repeat: no-repeat;
 }
 
 hr.h-color {
@@ -30,12 +33,6 @@ hr.h-color {
     color: #fff;
 }
 
-.imgbox {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-}
-
 .center-fit {
     padding: 0;
     display: block;
@@ -48,3 +45,4 @@ hr.h-color {
     color: red;
     font-size: 0.8rem;
 }
+

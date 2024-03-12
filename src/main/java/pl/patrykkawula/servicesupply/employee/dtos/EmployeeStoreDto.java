@@ -4,6 +4,7 @@ import lombok.Builder;
 
 @Builder
 public record EmployeeStoreDto(
+        Long id,
         String email,
         Long storeId) {
 }

@@ -15,7 +15,7 @@ import pl.patrykkawula.servicesupply.store.StoreService;
 import java.util.List;
 
 @Service
-class EmployeeDtoMapper {
+public class EmployeeDtoMapper {
 
     // FIXME to musi stąd zniknąć
     // poznikało ale nie wiem czy dobrze to zrobiłem, wszystkie zmiany w metodzie map(EmployeeSaveDto employeeSaveDto, List<EmployeeRole> roles, Store store)
@@ -53,6 +53,7 @@ class EmployeeDtoMapper {
 
     EmployeeStoreDto mapToEmployeeStoreDto(Employee employee) {
         return EmployeeStoreDto.builder()
+                .id(employee.getId())
                 .email(employee.getEmail())
                 .storeId(employee.getStore().getId())
                 .build();

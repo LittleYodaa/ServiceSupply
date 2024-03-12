@@ -15,4 +15,9 @@ class HomeController {
     String workInProgeress() {
         return "functionality_in_progress";
     }
+
+    @GetMapping("/login")
+    String loginForm() {
+        return "login_form";
+    }
 }

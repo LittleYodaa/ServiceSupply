@@ -14,7 +14,6 @@ import pl.patrykkawula.servicesupply.exception.EmployeeNotFoundException;
 import pl.patrykkawula.servicesupply.store.Store;
 import pl.patrykkawula.servicesupply.store.StoreDtoMapper;
 import pl.patrykkawula.servicesupply.store.StoreService;
-import pl.patrykkawula.servicesupply.store.dtos.StoreDto;
 
 import java.util.List;
 import java.util.Optional;
@@ -63,17 +62,20 @@ public class EmployeeService {
         employeeRepository.deleteById(id);
     }
 
-    public Long findStoreIdByEmployeeEmail(String email) {
-        return employeeRepository.findByEmail(email)
-                .map(employee -> employee.getStore().getId())
-                .orElseThrow();
-    }
 
-    public EmployeeStoreDto getActualUserId() {
+    public EmployeeStoreDto getActualEmployeeStoreDto() {
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         String email = ((UserDetails) principal).getUsername();
         return employeeRepository.findByEmail(email)
                 .map(employeeDtoMapper::mapToEmployeeStoreDto)
+                .orElseThrow(() -> new EmployeeNotFoundException(email));
+    }
+
+    public Long getActualEmployeeId() {
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        String email = ((UserDetails) principal).getUsername();
+        return employeeRepository.findByEmail(email)
+                .map(Employee::getId)
                 .orElseThrow(() -> new EmployeeNotFoundException(email));
     }
 }

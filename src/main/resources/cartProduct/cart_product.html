@@ -2,7 +2,7 @@
 <html lang="pl" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Lista produktów</title>
+    <title>Koszyk zakupów</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
           integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
           crossorigin="anonymous">
@@ -13,37 +13,32 @@
 <div>
     <nav class="navbar navbar-dark bg-light">
         <a class="btn btn-primary ms-auto me-md-2" type="button" th:href="@{/}">Strona główna</a>
-        <a th:href="@{/}" class="btn btn-primary px-3 py-1,5 d-block">
-            <i class="fa-solid fa-cart-shopping"></i> Twój koszyk </a></li>
     </nav>
 </div>
 <div class="container">
-    <h1>Lista produktów</h1>
-    <a th:href="@{/productDetails/showNewProductForm}" class="btn btn-primary btn-sm mb-3">Dodaj produkt</a>
+    <h1>Koszyk</h1>
+    <a th:href="@{/productDetails}" class="btn btn-primary btn-sm mb-3">Dodaj produkt</a>
     <table class="table table-striped table-responsive-md">
         <thead>
         <tr>
-            <th>Dostawca</th>
             <th>Produkt</th>
-            <th></th>
+            <th>Ilość</th>
             <th></th>
             <th></th>
             <th></th>
         </tr>
         </thead>
         <tbody>
-        <tr th:each="product : ${productDetailsList}">
-            <td th:text="${product.brand()}"></td>
-            <td th:text="${product.name().toUpperCase()}"></td>
+        <tr th:each="product : ${cartProductsList}">
+            <td th:text="${product.productDetailsName().toUpperCase()}"></td>
+            <td th:text="${product.productQuantity()}"></td>
             <td><a th:href="@{cartProducts/{id}/addCartProduct (id=${product.id()})}" class="btn btn-primary">
                 <i class="fa-solid fa-cart-shopping"></i>
             </a>
             </td>
-            <td><a th:href="@{/productDetails/{id}/getProductInfo (id=${product.id()})}" class="btn btn-primary">Info</a>
+            <td><a class="btn btn-primary">Edytuj</a>
             </td>
-            <td><a th:href="@{/productDetails/{id}/showFormForUpdate (id=${product.id()})}" class="btn btn-primary">Edytuj</a>
-            </td>
-            <td><a th:href="@{/productDetails/{id}/deleteProductDetails (id=${product.id()})}" class="btn btn-danger">Usuń</a>
+            <td><a class="btn btn-danger">Usuń</a>
             </td>
         </tr>
         </tbody>
