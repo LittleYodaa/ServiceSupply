@@ -8,6 +8,7 @@ import pl.patrykkawula.servicesupply.cartproduct.dtos.CartProductViewDto;
 import pl.patrykkawula.servicesupply.employee.Employee;
 import pl.patrykkawula.servicesupply.employee.EmployeeRepository;
 import pl.patrykkawula.servicesupply.employee.EmployeeService;
+import pl.patrykkawula.servicesupply.exception.CartProductNotFoundException;
 import pl.patrykkawula.servicesupply.exception.EmployeeNotFoundException;
 import pl.patrykkawula.servicesupply.productdetails.ProductDetails;
 import pl.patrykkawula.servicesupply.productdetails.ProductDetailsDtoMapper;
@@ -45,15 +46,25 @@ class CartProductService {
 
     @Transactional
     void addCartProduct(Long id) {
-        ProductDetailsSaveDto productDetailsById = productDetailsService.findProductDetailsById(id);
-        Brand brand = brandService.findByName(productDetailsById.brand());
-        ProductDetails productDetails = productDetailsDtoMapper.map(productDetailsById, brand);
-        Long actualEmployeeId = employeeService.getActualEmployeeId();
-        Employee employee = employeeRepository.findById(actualEmployeeId).orElseThrow(() -> new EmployeeNotFoundException(actualEmployeeId));
         if (checkStoreProduct(id))
             cartProductRepository.findById(id).ifPresent(cartProduct -> cartProduct.setProductQuantity(cartProduct.getProductQuantity() + 1));
-        else
+        else {
+            ProductDetailsSaveDto productDetailsById = productDetailsService.findProductDetailsById(id);
+            Brand brand = brandService.findByName(productDetailsById.brand());
+            ProductDetails productDetails = productDetailsDtoMapper.map(productDetailsById, brand);
+            Long actualEmployeeId = employeeService.getActualEmployeeId();
+            Employee employee = employeeRepository.findById(actualEmployeeId).orElseThrow(() -> new EmployeeNotFoundException(actualEmployeeId));
             addNewCartProduct(id, productDetails, employee);
+        }
+    }
+
+    @Transactional
+    void deleteCartProduct(Long id) {
+        Long cartProductQuantity = cartProductRepository.findById(id).map(CartProduct::getProductQuantity).orElseThrow(() -> new CartProductNotFoundException(id));
+        if (cartProductQuantity >= 2)
+            cartProductRepository.findById(id).ifPresent(cartProduct -> cartProduct.setProductQuantity(cartProduct.getProductQuantity() - 1));
+        else
+            cartProductRepository.deleteById(id);
     }
 
     private void addNewCartProduct(Long id, ProductDetails productDetails, Employee employee) {
