@@ -52,16 +52,11 @@ CREATE TABLE store(
                       name VARCHAR(100) NOT NULL
 );
 
-CREATE TABLE cart(
-    id BIGINT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    employee_id BIGINT NOT NULL
-);
-
 CREATE TABLE cart_product(
     id BIGINT PRIMARY KEY NOT NULL AUTO_INCREMENT,
     product_quantity BIGINT NOT NULL,
     product_details_id BIGINT NOT NULL,
-    cart_id BIGINT NOT NULL
+    employee_id BIGINT NOT NULL
 );
 
 CREATE TABLE `order`(
@@ -85,6 +80,11 @@ CREATE TABLE store_product(
     product_details_id BIGINT NOT NULL,
     product_quantity BIGINT NOT NULL
 );
+
+# CREATE TABLE cart(
+#     id BIGINT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+#     employee_id BIGINT NOT NULL
+# );
 
 
 

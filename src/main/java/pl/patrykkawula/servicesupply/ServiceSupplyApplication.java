@@ -60,4 +60,16 @@ public class ServiceSupplyApplication {
 		productDetailsTemplateResolver.setCheckExistence(true);
 		return productDetailsTemplateResolver;
 	}
+
+	@Bean
+	public ClassLoaderTemplateResolver cartProductTemplateResolver() {
+		ClassLoaderTemplateResolver productDetailsTemplateResolver = new ClassLoaderTemplateResolver();
+		productDetailsTemplateResolver.setPrefix("cartProduct/");
+		productDetailsTemplateResolver.setSuffix(".html");
+		productDetailsTemplateResolver.setTemplateMode(TemplateMode.HTML);
+		productDetailsTemplateResolver.setCharacterEncoding("UTF-8");
+		productDetailsTemplateResolver.setOrder(1);
+		productDetailsTemplateResolver.setCheckExistence(true);
+		return productDetailsTemplateResolver;
+	}
 }

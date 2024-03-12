@@ -2,9 +2,8 @@ package pl.patrykkawula.servicesupply.employee;
 
 import jakarta.persistence.*;
 import lombok.*;
-import pl.patrykkawula.servicesupply.cart.Cart;
-import pl.patrykkawula.servicesupply.order.Order;
 import pl.patrykkawula.servicesupply.employee.employeeRole.EmployeeRole;
+import pl.patrykkawula.servicesupply.order.Order;
 import pl.patrykkawula.servicesupply.store.Store;
 
 import java.util.List;
@@ -31,8 +30,8 @@ public class Employee {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "store_id")
     private Store store;
-    @OneToOne(mappedBy = "employee", fetch = FetchType.LAZY)
-    private Cart shoppingCart;
+//    @OneToOne(mappedBy = "employee", fetch = FetchType.LAZY)
+//    private Cart shoppingCart;
     @OneToMany(mappedBy = "employee")
     private List<Order> orders;
 

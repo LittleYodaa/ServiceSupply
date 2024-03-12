@@ -1,7 +1,5 @@
 package pl.patrykkawula.servicesupply.storeproduct;
 
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import pl.patrykkawula.servicesupply.brand.Brand;
@@ -16,7 +14,6 @@ import pl.patrykkawula.servicesupply.productdetails.dtos.ProductDetailsDto;
 import pl.patrykkawula.servicesupply.store.Store;
 import pl.patrykkawula.servicesupply.store.StoreDtoMapper;
 import pl.patrykkawula.servicesupply.store.StoreService;
-import pl.patrykkawula.servicesupply.store.dtos.StoreDto;
 import pl.patrykkawula.servicesupply.storeproduct.dtos.StoreProductViewDto;
 
 import java.util.List;
@@ -94,7 +91,7 @@ class StoreProductsService {
     }
 
     private Store getActualUsersStore() {
-        EmployeeStoreDto employeeStoreDto = employeeService.getActualUserId();
+        EmployeeStoreDto employeeStoreDto = employeeService.getActualEmployeeStoreDto();
         return storeDtoMapper.map(storeService.findStoreById(employeeStoreDto.storeId()));
     }
 
