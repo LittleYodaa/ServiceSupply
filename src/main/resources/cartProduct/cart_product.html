@@ -25,20 +25,15 @@
             <th>Ilość</th>
             <th></th>
             <th></th>
-            <th></th>
         </tr>
         </thead>
         <tbody>
         <tr th:each="product : ${cartProductsList}">
             <td th:text="${product.productDetailsName().toUpperCase()}"></td>
             <td th:text="${product.productQuantity()}"></td>
-            <td><a th:href="@{cartProducts/{id}/addCartProduct (id=${product.id()})}" class="btn btn-primary">
-                <i class="fa-solid fa-cart-shopping"></i>
-            </a>
+            <td><a th:href="@{/cartProducts/{id}/addCartProduct (id=${product.id()})}" class="btn btn-primary">+</a>
             </td>
-            <td><a class="btn btn-primary">Edytuj</a>
-            </td>
-            <td><a class="btn btn-danger">Usuń</a>
+            <td><a th:href="@{/cartProducts/{id}/deleteCartProduct (id=${product.id()})}" class="btn btn-danger">-</a>
             </td>
         </tr>
         </tbody>
