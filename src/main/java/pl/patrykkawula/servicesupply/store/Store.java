@@ -5,6 +5,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 import lombok.*;
+import pl.patrykkawula.servicesupply.cartproduct.CartProduct;
 import pl.patrykkawula.servicesupply.order.Order;
 import pl.patrykkawula.servicesupply.storeproduct.StoreProduct;
 import pl.patrykkawula.servicesupply.employee.Employee;
@@ -25,6 +26,8 @@ public class Store {
     private List<Employee> employees;
     @OneToMany(mappedBy = "store")
     private List<StoreProduct> storeProducts;
+    @OneToMany(mappedBy = "store")
+    private List<CartProduct> cartProducts;
     @OneToMany
     @JoinColumn(name = "store_id")
     private List<Order> orders;

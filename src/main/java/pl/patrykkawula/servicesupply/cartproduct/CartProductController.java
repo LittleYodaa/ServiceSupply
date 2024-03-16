@@ -26,6 +26,8 @@ class CartProductController {
         model.addAttribute("cartProductsList", cartProductsList);
         return "/cart_product";
     }
+    //todo
+    //Post method
     @GetMapping("/{id}/addCartProduct")
     String addCartProduct(@PathVariable(value = "id") Long id) {
         cartProductService.addCartProduct(id);
