@@ -14,11 +14,14 @@ import pl.patrykkawula.servicesupply.productdetails.ProductDetails;
 import pl.patrykkawula.servicesupply.productdetails.ProductDetailsDtoMapper;
 import pl.patrykkawula.servicesupply.productdetails.ProductDetailsService;
 import pl.patrykkawula.servicesupply.productdetails.dtos.ProductDetailsSaveDto;
+import pl.patrykkawula.servicesupply.store.Store;
+import pl.patrykkawula.servicesupply.store.StoreDtoMapper;
+import pl.patrykkawula.servicesupply.store.StoreService;
 
 import java.util.List;
 
 @Service
-class CartProductService {
+public class CartProductService {
     private final CartProductRepository cartProductRepository;
     private final ProductDetailsService productDetailsService;
     private final BrandService brandService;
@@ -26,8 +29,11 @@ class CartProductService {
     private final EmployeeService employeeService;
     private final EmployeeRepository employeeRepository;
     private final CartProductDtoMapper cartProductDtoMapper;
+    private final StoreDtoMapper storeDtoMapper;
+    private final StoreService storeService;
 
-    CartProductService(CartProductRepository cartProductRepository, ProductDetailsService productDetailsService, BrandService brandService, ProductDetailsDtoMapper productDetailsDtoMapper, EmployeeService employeeService, EmployeeRepository employeeRepository, CartProductDtoMapper cartProductDtoMapper) {
+
+    CartProductService(CartProductRepository cartProductRepository, ProductDetailsService productDetailsService, BrandService brandService, ProductDetailsDtoMapper productDetailsDtoMapper, EmployeeService employeeService, EmployeeRepository employeeRepository, CartProductDtoMapper cartProductDtoMapper, StoreDtoMapper storeDtoMapper, StoreService storeService) {
         this.cartProductRepository = cartProductRepository;
         this.productDetailsService = productDetailsService;
         this.brandService = brandService;
@@ -35,9 +41,11 @@ class CartProductService {
         this.employeeService = employeeService;
         this.employeeRepository = employeeRepository;
         this.cartProductDtoMapper = cartProductDtoMapper;
+        this.storeDtoMapper = storeDtoMapper;
+        this.storeService = storeService;
     }
 
-    List<CartProductViewDto> findAllCartProducts() {
+    public List<CartProductViewDto> findAllCartProducts() {
         return cartProductRepository.findAll()
                 .stream()
                 .map(cartProductDtoMapper::mapToCartProductViewDto)
@@ -51,10 +59,11 @@ class CartProductService {
         else {
             ProductDetailsSaveDto productDetailsById = productDetailsService.findProductDetailsById(id);
             Brand brand = brandService.findByName(productDetailsById.brand());
+            Store store = storeDtoMapper.map(storeService.getActualEmployeeStore());
             ProductDetails productDetails = productDetailsDtoMapper.map(productDetailsById, brand);
             Long actualEmployeeId = employeeService.getActualEmployeeId();
             Employee employee = employeeRepository.findById(actualEmployeeId).orElseThrow(() -> new EmployeeNotFoundException(actualEmployeeId));
-            addNewCartProduct(id, productDetails, employee);
+            addNewCartProduct(id, productDetails, employee, store);
         }
     }
 
@@ -67,8 +76,8 @@ class CartProductService {
             cartProductRepository.deleteById(id);
     }
 
-    private void addNewCartProduct(Long id, ProductDetails productDetails, Employee employee) {
-        cartProductRepository.save(new CartProduct(id, 1L, productDetails, employee));
+    private void addNewCartProduct(Long id, ProductDetails productDetails, Employee employee, Store store) {
+        cartProductRepository.save(new CartProduct(id, 1L, productDetails, employee, store));
     }
 
     private boolean checkStoreProduct(Long id) {

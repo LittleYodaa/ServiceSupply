@@ -56,7 +56,8 @@ CREATE TABLE cart_product(
     id BIGINT PRIMARY KEY NOT NULL AUTO_INCREMENT,
     product_quantity BIGINT NOT NULL,
     product_details_id BIGINT NOT NULL,
-    employee_id BIGINT NOT NULL
+    employee_id BIGINT NOT NULL,
+    store_id BIGINT NOT NULL
 );
 
 CREATE TABLE `order`(

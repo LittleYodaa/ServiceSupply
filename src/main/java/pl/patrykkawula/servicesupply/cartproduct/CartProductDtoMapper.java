@@ -4,7 +4,7 @@ import org.springframework.stereotype.Service;
 import pl.patrykkawula.servicesupply.cartproduct.dtos.CartProductViewDto;
 
 @Service
-class CartProductDtoMapper {
+public class CartProductDtoMapper {
     CartProductViewDto mapToCartProductViewDto(CartProduct cartProduct) {
         return CartProductViewDto.builder()
                 .id(cartProduct.getId())
@@ -12,4 +12,6 @@ class CartProductDtoMapper {
                 .productQuantity(cartProduct.getProductQuantity())
                 .build();
     }
+
+
 }

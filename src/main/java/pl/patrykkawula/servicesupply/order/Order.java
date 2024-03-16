@@ -2,6 +2,7 @@ package pl.patrykkawula.servicesupply.order;
 
 import jakarta.persistence.*;
 import lombok.*;
+import pl.patrykkawula.servicesupply.cartproduct.CartProduct;
 import pl.patrykkawula.servicesupply.employee.Employee;
 import pl.patrykkawula.servicesupply.orderproduct.OrderProduct;
 import pl.patrykkawula.servicesupply.store.Store;
@@ -26,7 +27,9 @@ public class Order {
     private Employee employee;
     @ManyToOne
     private Store store;
-    @OneToMany(mappedBy = "order")
-    private List<OrderProduct> orderProducts;
+//    @OneToMany(mappedBy = "order")
+//    private List<CartProduct> cartProducts;
+@OneToMany(mappedBy = "order")
+private List<OrderProduct> orderProducts;
 
 }
