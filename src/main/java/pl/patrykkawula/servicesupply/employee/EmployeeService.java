@@ -71,6 +71,9 @@ public class EmployeeService {
                 .orElseThrow(() -> new EmployeeNotFoundException(email));
     }
 
+
+    //todo
+    //raczej do wywalenia, przeniesienie do StoreService
     public Long getActualEmployeeId() {
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         String email = ((UserDetails) principal).getUsername();
