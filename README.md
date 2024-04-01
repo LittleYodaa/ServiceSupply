@@ -19,18 +19,18 @@ Project in development.
 
 ## About the project
 
-This project was created to support meneger of service to keep the track about actual stock of service items.
+This project was created to support meneger of workshop to keep the track about actual stock of workshop items.
 
-The application allows you to create a database of users, service items, stock of service items in the store, orders and their management over time.
+The application allows you to create a database of users, workshop items, stock of workshop items in the store, orders and their management over time.
 
 Selected functionalities:
 
 * ability to log in as admin or normal user
-* possibility of use by many services at the same time
-* management of available service items and employees
+* possibility of use by many workshops at the same time
+* management of available workshop items and employees
 * adding products to the cart
 * update store stock
-* updating the stock of service items on
+* updating the stock of workshop items on
 * employee management
 
 ## Built with
@@ -64,6 +64,38 @@ To get a local copy up and running follow these simple steps.
    mvn spring-boot:run
    ```
 or by this url: http://srv22.mikr.us:20289/
+
+## Exploring servicesupply
+
+Operation and available endpoints
+
+### Product details
+
+| Method | Url            | Description                                                                                        |                                                                                                                                                                                         |
+|--------|----------------|----------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| GET    | /productDetails | Get all available products.                                                                                 |                                                                                                                                                                                                                       |
+| GET   | /productDetails/showNewProductForm    | Show new form to add new product.                                                                                  |  |
+| GET    | /productDetails/{id}showFormForUpdate | Show form to update product details with pre-filled fields. |                |
+                                    |                                                                                                                                                                                                                       |
+
+### Cart products
+
+| Method | Url                                                  | Description                                                                                                              |                                                                                                                                                                                                                    |
+|--------|------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| GET    | /cartProducts                            | Get all user cart products.                                |                                                                                                                                                                                                                                                  |
+| GET    | /cartProducts/{id}/addCartProduct                        | Add new product to users cart.                                                                                            |                                                                                                            |
+| GET   | /cartProducts/{id}/deleteCartProduct                                 | Delete cart product from users cart.                                                       |  |
+                                          |                                                                                                                                                                                                                            |    
+
+
+### Employees
+
+| Method | Url            | Description                                                                                        |                                                                                                                                                                                         |
+|--------|----------------|----------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| GET    | /employees | Get all employees on users workshop.                                                                                 |                                                                                                                                                                                                                       |
+| GET   | /employees/showNewEmployeeForm      | Show form to add new employee.                                                                                  |  |
+| GET    | /employees/{id}/delete | Delete selected employee |                |
+
 
 ## Contact
 
