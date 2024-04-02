@@ -102,6 +102,61 @@ Loggin page:
 
 ![Loggin page](src/main/resources/static/images/loggin_page.png)
 
+Starting page:
+
+![Starting page](src/main/resources/static/images/main_page.png)
+
+Products list:
+
+![Product list](src/main/resources/static/images/products.png)
+
+Add new product:
+
+![Add new product](src/main/resources/static/images/add_product_empty.png)
+
+Dropdown list:
+
+![Add new product](src/main/resources/static/images/store_product_list.png)
+
+Validation:
+
+![Validation](src/main/resources/static/images/add_product_validation.png)
+
+Product info:
+
+![Product info](src/main/resources/static/images/product_info.png)
+
+Modify product:
+
+![Modify product](src/main/resources/static/images/modify_product.png)
+
+Employees:
+
+![Employees](src/main/resources/static/images/employees.png)
+
+Shopping cart:
+
+![Shopping cart](src/main/resources/static/images/shopping_cart.png)
+
+Store products:
+
+![Store products](src/main/resources/static/images/store_product.png)
+
+Support error page:
+
+![Support error page](src/main/resources/static/images/support error page.png)
+
+Support error page resource:
+
+![Support error page resource](src/main/resources/static/images/support error page with stack.png)
+
+
+
+
+
+
+
+
 
 ## Design Patterns
 
