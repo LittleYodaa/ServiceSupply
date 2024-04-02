@@ -96,6 +96,13 @@ Operation and available endpoints
 | GET   | /employees/showNewEmployeeForm      | Show form to add new employee.                                                                                  |  |
 | GET    | /employees/{id}/delete | Delete selected employee |                |
 
+
+### Application 
+Loggin page:
+
+![Uploading strona logowania.png…]()
+
+
 ## Design Patterns
 
 Spring Bean is a singleton by default.
