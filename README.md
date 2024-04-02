@@ -144,11 +144,11 @@ Store products:
 
 Support error page:
 
-![Support error page](src/main/resources/static/images/support error page.png)
+![Error page](src/main/resources/static/images/support error page.png)
 
 Support error page resource:
 
-![Support error page resource](src/main/resources/static/images/support error page with stack.png)
+![Support resource](src/main/resources/static/images/support error page with stack.png)
 
 
 
