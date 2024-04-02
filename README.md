@@ -100,7 +100,7 @@ Operation and available endpoints
 ### Application 
 Loggin page:
 
-![Uploading strona logowania.png…]()
+![Loggin page]([image link](https://github.com/LittleYodaa/servicesupply/blob/master/src/main/resources/static/images/loggin_page.png))
 
 
 ## Design Patterns
