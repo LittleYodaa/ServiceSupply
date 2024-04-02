@@ -4,7 +4,7 @@ login: root@email.com
 
 password: pass
 
-Project in development.
+Project in testing process, deployment may not work properly.
 
 ## Contents
 
@@ -96,6 +96,9 @@ Operation and available endpoints
 | GET   | /employees/showNewEmployeeForm      | Show form to add new employee.                                                                                  |  |
 | GET    | /employees/{id}/delete | Delete selected employee |                |
 
+## Design Patterns
+
+Spring Bean is a singleton by default.
 
 ## Contact
 
