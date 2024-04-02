@@ -144,7 +144,7 @@ Store products:
 
 Support error page:
 
-![Error page](src/main/resources/static/images/support error page.png)
+![Error page](src/main/resources/static/images/support_error_page.png)
 
 Support error page resource:
 
