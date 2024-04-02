@@ -148,7 +148,7 @@ Support error page:
 
 Support error page resource:
 
-![Support resource](src/main/resources/static/images/support error page with stack.png)
+![Support resource](src/main/resources/static/images/support_error_page_with_stack.png)
 
 
 
