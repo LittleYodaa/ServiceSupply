@@ -100,55 +100,55 @@ Operation and available endpoints
 ### Application 
 Loggin page:
 
-![Loggin page](src/main/resources/static/images/loggin_page.png)
+![Loggin page](docs/loggin_page.png)
 
 Starting page:
 
-![Starting page](src/main/resources/static/images/main_page.png)
+![Starting page](docs/main_page.png)
 
 Products list:
 
-![Product list](src/main/resources/static/images/products.png)
+![Product list](docs/products.png)
 
 Add new product:
 
-![Add new product](src/main/resources/static/images/add_product_empty.png)
+![Add new product](docs/add_product_empty.png)
 
 Dropdown list:
 
-![Add new product](src/main/resources/static/images/store_product_list.png)
+![Add new product](docs/store_product_list.png)
 
 Validation:
 
-![Validation](src/main/resources/static/images/add_product_validation.png)
+![Validation](docs/add_product_validation.png)
 
 Product info:
 
-![Product info](src/main/resources/static/images/product_info.png)
+![Product info](docs/product_info.png)
 
 Modify product:
 
-![Modify product](src/main/resources/static/images/modify_product.png)
+![Modify product](docs/modify_product.png)
 
 Employees:
 
-![Employees](src/main/resources/static/images/employees.png)
+![Employees](docs/employees.png)
 
 Shopping cart:
 
-![Shopping cart](src/main/resources/static/images/shopping_cart.png)
+![Shopping cart](docs/shopping_cart.png)
 
 Store products:
 
-![Store products](src/main/resources/static/images/store_product.png)
+![Store products](docs/store_product.png)
 
 Support error page:
 
-![Error page](src/main/resources/static/images/support_error_page.png)
+![Error page](docs/support error page.png)
 
 Support error page resource:
 
-![Support resource](src/main/resources/static/images/support_error_page_with_stack.png)
+![Support resource](docs/support error page with stack.png)
 
 
 
